@@ -250,10 +250,10 @@ public class CreateJPanel extends javax.swing.JPanel {
                             .addComponent(txtbanum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
                         .addGap(0, 81, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnsave)
-                .addGap(194, 194, 194))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(234, 234, 234)
+                .addComponent(btnsave, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,9 +322,9 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblipnum)
                     .addComponent(txtipnum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(164, 164, 164)
+                .addGap(62, 62, 62)
                 .addComponent(btnsave)
-                .addGap(203, 203, 203))
+                .addGap(305, 305, 305))
         );
 
         jScrollPane2.setViewportView(jPanel1);
@@ -359,23 +359,53 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
         // TODO add your handling code here:
-        this.product.setName(txtname.getText());
-        this.product.setGeodata(txtgeodata.getText());
-        this.product.setDob(txtdate.getText());
-        this.product.setTelenum(txttelenum.getText());
-        this.product.setFaxnum(txtfaxnum.getText());
-        this.product.setEmail(txtemail.getText());
-        this.product.setSsn(txtssn.getText());
-        this.product.setMedrec(txtmednum.getText());
-        this.product.setHpbnum(txthpnum.getText());
-        this.product.setBanum(txtbanum.getText());
-        this.product.setLicnum(txtlicnum.getText());
-        this.product.setSernum(txtvehid.getText());
+        boolean namevalid = this.validname(txtname.getText());
+        boolean geovalid = this.validgeo(txtgeodata.getText());
+        boolean datevalid = this.validdate(txtdate.getText());
+        boolean televalid = this.validtele(txttelenum.getText());
+        boolean faxvalid = this.validfax(txtfaxnum.getText());
+        boolean ssnvalid = this.validssn(txtssn.getText());
+        boolean emailvalid = this.validemail(txtemail.getText());
+        boolean medrecvalid = this.validmedrec(txtmednum.getText());
+        boolean healthvalid = this.validhealth(txthpnum.getText());
+        boolean bankvalid = this.validbank(txtbanum.getText());
+        boolean licevalid = this.validlice(txtlicnum.getText());
+        boolean vehidvalid = this.validvehid(txtvehid.getText());
+        boolean devicevalid = this.validdevice(txtdevid.getText());
+
+
+//        this.product.setSernum(txtvehid.getText());
+//        this.product.setDevnum(txtdevid.getText());
+//        this.product.setLinkdin(txtlinkdin.getText());
+//        this.product.setIpaddr(txtipnum.getText());    
+        if(namevalid && geovalid && datevalid && televalid && faxvalid
+                && ssnvalid && emailvalid && medrecvalid && healthvalid
+                && bankvalid && licevalid && vehidvalid && devicevalid){
+            this.product.setName(txtname.getText());
+            this.product.setGeodata(txtgeodata.getText());
+            this.product.setDob(txtdate.getText());
+            this.product.setTelenum(txttelenum.getText());
+            this.product.setFaxnum(txtfaxnum.getText());
+            this.product.setEmail(txtemail.getText());
+            this.product.setSsn(txtssn.getText());
+            this.product.setMedrec(txtmednum.getText());
+            this.product.setHpbnum(txthpnum.getText());
+            this.product.setBanum(txtbanum.getText());
+            this.product.setLicnum(txtlicnum.getText());
+            this.product.setSernum(txtvehid.getText());
         this.product.setDevnum(txtdevid.getText());
         this.product.setLinkdin(txtlinkdin.getText());
         this.product.setIpaddr(txtipnum.getText());
+            JOptionPane.showMessageDialog(this, "Details saved successfully");
+        }
+        else{
+            
+            System.out.println("enter valid data");
+//            System.out.println("enter valid telephone number");
+           
+        }
         
-        JOptionPane.showMessageDialog(this, "Details saved successfully");
+        
     }//GEN-LAST:event_btnsaveActionPerformed
 
     private void txtbanumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbanumActionPerformed
@@ -456,4 +486,139 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txttelenum;
     private javax.swing.JTextField txtvehid;
     // End of variables declaration//GEN-END:variables
+    //This validates the Name
+    private boolean validname(String name){
+        int i;
+        int stringlen = name.trim().length();
+        for(i = 0; i < stringlen; i++){
+            if(Character.isDigit(name.charAt(i))){
+                return false;
+            }
+        }
+        return true;
+    }
+    //This validates the date
+    private boolean validgeo(String geodata){
+        int geolen = geodata.trim().length();
+        if( geolen != 0){
+            return true;
+        }
+        return false;
+    }
+    //This validates the date (also exclude special chars)
+    private boolean validdate(String date){
+        int d;
+        int datelen = date.trim().length();
+        if(datelen == 8){
+            for(d = 0; d < datelen; d++){
+                if(Character.isDigit(date.charAt(d))){
+                  return true;  
+                }
+            }
+         }
+        return false;
+        }   
+    //This will validate the telephone num
+    private boolean validtele(String tele){
+        int t;
+        int telelen = tele.trim().length();
+        if(telelen == 10){
+            for(t = 0; t < telelen; t++){
+                if(Character.isDigit(tele.charAt(t))){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    //This is to validate fax number
+    private boolean validfax(String fax){
+        int f;
+        int faxlen = fax.trim().length();
+        if(faxlen == 10){
+            for(f = 0; f < faxlen; f++){
+                if(Character.isDigit(fax.charAt(f))){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    private boolean validemail(String email){
+        int emaillen = email.trim().length();
+        if( emaillen != 0){
+            return true;
+        }
+        return false;
+    }
+    private boolean validssn(String ssn){
+        int s;
+        int ssnlen = ssn.trim().length();
+        if(ssnlen == 9){
+            for(s = 0; s < ssnlen; s++){
+                if(Character.isDigit(ssn.charAt(s)));
+                return true;
+            }
+        }
+        return false;
+    }
+    private boolean validmedrec(String medrec){
+        int m;
+        int medlen = medrec.trim().length();
+        if(medlen == 6){
+            for(m = 0;m < medlen;m++){
+                if(Character.isDigit(medrec.charAt(m)));
+                return true;
+            }
+        }
+        return false;
+    }
+    private boolean validhealth(String health){
+        int h;
+        int healen = health.trim().length();
+        if(healen == 10){
+            for(h = 0; h < healen; h++){
+                if(Character.isDigit(health.charAt(h)));
+                return true;
+            }
+        }
+        return false;
+    }
+    private boolean validbank(String bank){
+        int b;
+        int banklen = bank.trim().length();
+        if(banklen >= 8 || banklen <= 12){
+            for(b = 0; b < banklen; b++){
+                if(Character.isDigit(bank.charAt(b)));
+                return true;
+                 }
+            }
+        return false;
+    }
+    private boolean validlice(String licence){
+        int l;
+        int liclen = licence.trim().length();
+        if(liclen == 9){
+            for(l = 0; l < liclen;l++){
+                if(Character.isDigit(licence.charAt(l)));
+                return true;
+            }
+        }  
+        return false;
+    }    
+    private boolean validvehid(String vehical){
+        int v;
+        int vehlen = vehical.trim().length();
+        if(vehlen != 0){
+            return true;
+        }
+        return false;
+    }
+    private boolean validdevice(String device){
+        int devlen = device.trim().length();
+        if(devlen != 0){
+            return true;
+        }
+        return false;
+    }
 }
