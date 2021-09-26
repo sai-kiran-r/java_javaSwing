@@ -66,6 +66,10 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtdate = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtgeodata = new javax.swing.JTextArea();
+        lblbiodata = new javax.swing.JLabel();
+        lblimage = new javax.swing.JLabel();
+        lblucode = new javax.swing.JLabel();
+        txtucode = new javax.swing.JTextField();
 
         lbldevid.setText("Device Identifier:");
 
@@ -189,6 +193,18 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtgeodata.setRows(5);
         jScrollPane3.setViewportView(txtgeodata);
 
+        lblbiodata.setText("Biometric data:");
+
+        lblimage.setText("Your Image:");
+
+        lblucode.setText("Unique Code:");
+
+        txtucode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtucodeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -218,7 +234,11 @@ public class ViewJPanel extends javax.swing.JPanel {
                                     .addComponent(lbllinkdin)
                                     .addComponent(lbldevid)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblipnum)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblbiodata)
+                                    .addComponent(lblimage)
+                                    .addComponent(lblucode)
+                                    .addComponent(lblipnum))
                                 .addGap(3, 3, 3)))
                         .addGap(77, 77, 77)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -236,7 +256,8 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addComponent(txtdevid, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
                             .addComponent(txtvehid, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
                             .addComponent(txtlicnum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(txtbanum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
+                            .addComponent(txtbanum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                            .addComponent(txtucode, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
                         .addGap(0, 83, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -307,7 +328,15 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblipnum)
                     .addComponent(txtipnum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(800, 800, 800))
+                .addGap(32, 32, 32)
+                .addComponent(lblbiodata)
+                .addGap(68, 68, 68)
+                .addComponent(lblimage)
+                .addGap(48, 48, 48)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblucode)
+                    .addComponent(txtucode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(410, 410, 410))
         );
 
         jScrollPane2.setViewportView(jPanel1);
@@ -380,6 +409,10 @@ public class ViewJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtdateActionPerformed
 
+    private void txtucodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtucodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtucodeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -387,12 +420,14 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblbanum;
+    private javax.swing.JLabel lblbiodata;
     private javax.swing.JLabel lbldate;
     private javax.swing.JLabel lbldevid;
     private javax.swing.JLabel lblemail;
     private javax.swing.JLabel lblfaxnum;
     private javax.swing.JLabel lblgeodata;
     private javax.swing.JLabel lblhpnum;
+    private javax.swing.JLabel lblimage;
     private javax.swing.JLabel lblipnum;
     private javax.swing.JLabel lbllicnum;
     private javax.swing.JLabel lbllinkdin;
@@ -400,6 +435,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblname;
     private javax.swing.JLabel lblssn;
     private javax.swing.JLabel lbltelenum;
+    private javax.swing.JLabel lblucode;
     private javax.swing.JLabel lblvehid;
     private javax.swing.JTextField txtbanum;
     private javax.swing.JTextField txtdate;
@@ -415,6 +451,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtname;
     private javax.swing.JTextField txtssn;
     private javax.swing.JTextField txttelenum;
+    private javax.swing.JTextField txtucode;
     private javax.swing.JTextField txtvehid;
     // End of variables declaration//GEN-END:variables
 
@@ -435,6 +472,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtdevid.setText(product.getDevnum());
         txtlinkdin.setText(product.getLinkdin());
         txtipnum.setText(product.getIpaddr());
+        txtucode.setText(product.getucode());
         
         
     }

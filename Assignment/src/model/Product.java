@@ -25,6 +25,7 @@ public class Product {
     private String devnum;
     private String linkdin;
     private String ipaddr;
+    private String ucode;
 
     public String getName() {
         return name;
@@ -144,6 +145,14 @@ public class Product {
 
     public void setIpaddr(String ipaddr) {
         this.ipaddr = ipaddr;
+    }
+    
+    public String getucode() {
+        return ucode;
+    }
+
+    public void setucode(String ucode) {
+        this.ucode = ucode;
     }
       
     

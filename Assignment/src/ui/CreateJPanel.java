@@ -5,6 +5,10 @@
  */
 package ui;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import model.Product;
 
@@ -68,6 +72,13 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtdate = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtgeodata = new javax.swing.JTextArea();
+        lblbiodata = new javax.swing.JLabel();
+        lblimage = new javax.swing.JLabel();
+        lblucode = new javax.swing.JLabel();
+        txtucode = new javax.swing.JTextField();
+        txtbiodata = new javax.swing.JButton();
+        txtimage = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
 
@@ -200,6 +211,34 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtgeodata.setRows(5);
         jScrollPane3.setViewportView(txtgeodata);
 
+        lblbiodata.setText("Biometric data:");
+
+        lblimage.setText("Image:");
+
+        lblucode.setText("Unique Code:");
+
+        txtucode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtucodeActionPerformed(evt);
+            }
+        });
+
+        txtbiodata.setText("Submit");
+        txtbiodata.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtbiodataActionPerformed(evt);
+            }
+        });
+
+        txtimage.setText("Submit");
+        txtimage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtimageActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("(MM/DD/YYYY)");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -213,7 +252,10 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addGap(51, 51, 51)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lbltelenum)
-                            .addComponent(lbldate)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbldate))
                             .addComponent(lblgeodata)
                             .addComponent(lblname)
                             .addComponent(lblfaxnum)
@@ -229,29 +271,37 @@ public class CreateJPanel extends javax.swing.JPanel {
                                     .addComponent(lbllinkdin)
                                     .addComponent(lbldevid)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblipnum)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblipnum)
+                                    .addComponent(lblbiodata)
+                                    .addComponent(lblimage)
+                                    .addComponent(lblucode))
                                 .addGap(3, 3, 3)))
                         .addGap(77, 77, 77)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(txtname)
-                            .addComponent(txttelenum, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(txtdate, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(txtfaxnum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(txtemail, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(txtmednum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(txtssn, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(txthpnum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(txtipnum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(txtlinkdin, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(txtdevid, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(txtvehid, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(txtlicnum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(txtbanum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(txtname)
+                                .addComponent(txttelenum, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                .addComponent(txtdate, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                .addComponent(txtfaxnum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                .addComponent(txtemail, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                .addComponent(txtmednum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                .addComponent(txtssn, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                .addComponent(txthpnum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                .addComponent(txtipnum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                .addComponent(txtlinkdin, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                .addComponent(txtdevid, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                .addComponent(txtvehid, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                .addComponent(txtlicnum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                .addComponent(txtbanum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                .addComponent(txtucode, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
+                            .addComponent(txtbiodata, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtimage, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 81, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(234, 234, 234)
+                .addGap(203, 203, 203)
                 .addComponent(btnsave, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -271,8 +321,9 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbldate, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbltelenum, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txttelenum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -322,9 +373,21 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblipnum)
                     .addComponent(txtipnum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(62, 62, 62)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblbiodata)
+                    .addComponent(txtbiodata))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblimage)
+                    .addComponent(txtimage))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblucode)
+                    .addComponent(txtucode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
                 .addComponent(btnsave)
-                .addGap(305, 305, 305))
+                .addGap(171, 171, 171))
         );
 
         jScrollPane2.setViewportView(jPanel1);
@@ -372,15 +435,18 @@ public class CreateJPanel extends javax.swing.JPanel {
         boolean licevalid = this.validlice(txtlicnum.getText());
         boolean vehidvalid = this.validvehid(txtvehid.getText());
         boolean devicevalid = this.validdevice(txtdevid.getText());
-
-
-//        this.product.setSernum(txtvehid.getText());
-//        this.product.setDevnum(txtdevid.getText());
-//        this.product.setLinkdin(txtlinkdin.getText());
-//        this.product.setIpaddr(txtipnum.getText());    
-        if(namevalid && geovalid && datevalid && televalid && faxvalid
-                && ssnvalid && emailvalid && medrecvalid && healthvalid
-                && bankvalid && licevalid && vehidvalid && devicevalid){
+        boolean ucodevalid = this.validucode(txtucode.getText());
+        boolean ipnumvalid = this.validipnum(txtipnum.getText());
+        boolean linkvalid = this.validlinkedin(txtlinkdin.getText());
+        
+        
+        if( 
+         namevalid  && datevalid && televalid && faxvalid
+          && geovalid && ssnvalid && medrecvalid && healthvalid    
+          && emailvalid 
+          && bankvalid && licevalid && vehidvalid && devicevalid
+          && ucodevalid && ipnumvalid && linkvalid
+                ){
             this.product.setName(txtname.getText());
             this.product.setGeodata(txtgeodata.getText());
             this.product.setDob(txtdate.getText());
@@ -393,15 +459,16 @@ public class CreateJPanel extends javax.swing.JPanel {
             this.product.setBanum(txtbanum.getText());
             this.product.setLicnum(txtlicnum.getText());
             this.product.setSernum(txtvehid.getText());
-        this.product.setDevnum(txtdevid.getText());
-        this.product.setLinkdin(txtlinkdin.getText());
-        this.product.setIpaddr(txtipnum.getText());
+            this.product.setDevnum(txtdevid.getText());
+            this.product.setLinkdin(txtlinkdin.getText());
+            this.product.setIpaddr(txtipnum.getText());
+            this.product.setucode(txtucode.getText());
+
             JOptionPane.showMessageDialog(this, "Details saved successfully");
         }
         else{
             
             System.out.println("enter valid data");
-//            System.out.println("enter valid telephone number");
            
         }
         
@@ -448,20 +515,35 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtdateActionPerformed
 
+    private void txtucodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtucodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtucodeActionPerformed
+
+    private void txtbiodataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbiodataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtbiodataActionPerformed
+
+    private void txtimageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtimageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtimageActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnsave;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblbanum;
+    private javax.swing.JLabel lblbiodata;
     private javax.swing.JLabel lbldate;
     private javax.swing.JLabel lbldevid;
     private javax.swing.JLabel lblemail;
     private javax.swing.JLabel lblfaxnum;
     private javax.swing.JLabel lblgeodata;
     private javax.swing.JLabel lblhpnum;
+    private javax.swing.JLabel lblimage;
     private javax.swing.JLabel lblipnum;
     private javax.swing.JLabel lbllicnum;
     private javax.swing.JLabel lbllinkdin;
@@ -469,14 +551,17 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblname;
     private javax.swing.JLabel lblssn;
     private javax.swing.JLabel lbltelenum;
+    private javax.swing.JLabel lblucode;
     private javax.swing.JLabel lblvehid;
     private javax.swing.JTextField txtbanum;
+    private javax.swing.JButton txtbiodata;
     private javax.swing.JTextField txtdate;
     private javax.swing.JTextField txtdevid;
     private javax.swing.JTextField txtemail;
     private javax.swing.JTextField txtfaxnum;
     private javax.swing.JTextArea txtgeodata;
     private javax.swing.JTextField txthpnum;
+    private javax.swing.JButton txtimage;
     private javax.swing.JTextField txtipnum;
     private javax.swing.JTextField txtlicnum;
     private javax.swing.JTextField txtlinkdin;
@@ -484,139 +569,215 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtname;
     private javax.swing.JTextField txtssn;
     private javax.swing.JTextField txttelenum;
+    private javax.swing.JTextField txtucode;
     private javax.swing.JTextField txtvehid;
     // End of variables declaration//GEN-END:variables
     //This validates the Name
+    // Only alphabets are allowed 
     private boolean validname(String name){
         int i;
         int stringlen = name.trim().length();
         for(i = 0; i < stringlen; i++){
-            if(Character.isDigit(name.charAt(i))){
+            if(!(Character.isAlphabetic(name.charAt(i)))){
                 return false;
             }
         }
         return true;
     }
-    //This validates the date
+    //This validates the address
+    // This will exclude all the below mentioned characters
     private boolean validgeo(String geodata){
+        Pattern g = Pattern.compile("[-&+;=\\\\?@#|/'><.^*()%!-$]");
         int geolen = geodata.trim().length();
-        if( geolen != 0){
-            return true;
+        if(geolen == 0 || (g.matcher(geodata).find() == true)){
+            return false;
         }
-        return false;
+        return true;
     }
-    //This validates the date (also exclude special chars)
+    //This is for checking date format
+    // This will also check for leap year as well
     private boolean validdate(String date){
-        int d;
-        int datelen = date.trim().length();
-        if(datelen == 8){
-            for(d = 0; d < datelen; d++){
-                if(Character.isDigit(date.charAt(d))){
-                  return true;  
-                }
-            }
-         }
-        return false;
-        }   
-    //This will validate the telephone num
+        SimpleDateFormat d = new SimpleDateFormat("MM/dd/yyyy");
+        d.setLenient(false);
+        try{
+            d.parse(date);
+        }
+        catch (ParseException D){
+            return false;
+        }
+        return true;
+    }  
+    //This will validate the telephone number
+    // This will not exclude 10 numbers
     private boolean validtele(String tele){
         int t;
         int telelen = tele.trim().length();
         if(telelen == 10){
             for(t = 0; t < telelen; t++){
-                if(Character.isDigit(tele.charAt(t))){
-                    return true;
+                if(!(Character.isDigit(tele.charAt(t)))){
+                    return false;
                 }
             }
+            return true;
         }
         return false;
     }
     //This is to validate fax number
+    // Fax number is similar to phone number
     private boolean validfax(String fax){
         int f;
         int faxlen = fax.trim().length();
         if(faxlen == 10){
             for(f = 0; f < faxlen; f++){
-                if(Character.isDigit(fax.charAt(f))){
-                    return true;
+                if(!(Character.isDigit(fax.charAt(f)))){
+                    return false;
                 }
             }
-        }
-        return false;
-    }
-    private boolean validemail(String email){
-        int emaillen = email.trim().length();
-        if( emaillen != 0){
             return true;
         }
         return false;
     }
+    // This will validate the email 
+    private boolean validemail(String email){
+        Pattern e = Pattern.compile("^(.+)@(.+)$");
+        int emaillen = email.trim().length();
+        if(emaillen != 0 && (e.matcher(email).find() == true)){
+            return true;
+        }
+        return false;
+    }
+    // SSN is 9 digits and only digits
+    // This is to validate SSN
     private boolean validssn(String ssn){
         int s;
         int ssnlen = ssn.trim().length();
         if(ssnlen == 9){
             for(s = 0; s < ssnlen; s++){
-                if(Character.isDigit(ssn.charAt(s)));
-                return true;
+                if(!(Character.isDigit(ssn.charAt(s)))){
+                    return false;
+                }
             }
+            return true;
         }
         return false;
     }
+    // This will validate medical record
+    // This is 6 digit
     private boolean validmedrec(String medrec){
         int m;
         int medlen = medrec.trim().length();
         if(medlen == 6){
-            for(m = 0;m < medlen;m++){
-                if(Character.isDigit(medrec.charAt(m)));
-                return true;
+            for(m = 0; m < medlen; m++){
+                if(!(Character.isDigit(medrec.charAt(m)))){
+                    return false;
+                }
             }
+            return true;
         }
         return false;
     }
+    // This is similar to mobile number
+    // This is 10 digit
     private boolean validhealth(String health){
         int h;
         int healen = health.trim().length();
         if(healen == 10){
             for(h = 0; h < healen; h++){
-                if(Character.isDigit(health.charAt(h)));
-                return true;
+                if(!(Character.isDigit(health.charAt(h)))){
+                    return false;
+                }
             }
-        }
-        return false;
-    }
-    private boolean validbank(String bank){
-        int b;
-        int banklen = bank.trim().length();
-        if(banklen >= 8 || banklen <= 12){
-            for(b = 0; b < banklen; b++){
-                if(Character.isDigit(bank.charAt(b)));
-                return true;
-                 }
-            }
-        return false;
-    }
-    private boolean validlice(String licence){
-        int l;
-        int liclen = licence.trim().length();
-        if(liclen == 9){
-            for(l = 0; l < liclen;l++){
-                if(Character.isDigit(licence.charAt(l)));
-                return true;
-            }
-        }  
-        return false;
-    }    
-    private boolean validvehid(String vehical){
-        int v;
-        int vehlen = vehical.trim().length();
-        if(vehlen != 0){
             return true;
         }
         return false;
     }
+    // This is for bank details
+    // Bank ID varies between 8 to 12 digits
+    private boolean validbank(String bank){
+        int b;
+        int banklen = bank.trim().length();
+        if((banklen >= 8) && (banklen <= 12)){
+            for(b = 0; b < banklen; b++){
+                if(!(Character.isDigit(bank.charAt(b)))){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+    //drivers licence is 
+    private boolean validlice(String licence){
+        int l;
+        int liclen = licence.trim().length();
+        if(liclen == 10){
+            for(l = 0; l < liclen; l++){
+                if(!(Character.isDigit(licence.charAt(l)))){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+    //This is alphanumeric
+    private boolean validvehid(String vehical){
+        int v;
+        int vehlen = vehical.trim().length();
+        if(vehlen == 6){
+            for(v = 0; v < vehlen; v++){
+                if((!(Character.isDigit(vehical.charAt(v)))) &&
+                        (!(Character.isAlphabetic(vehical.charAt(v))))){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+    // This is the IEMI number
+    // this is the 15 digits
     private boolean validdevice(String device){
+        int d;
         int devlen = device.trim().length();
-        if(devlen != 0){
+        if(devlen == 15){
+            for(d = 0; d < devlen; d++){
+                if(!(Character.isDigit(device.charAt(d)))){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+    // this is validate the unique number
+    private boolean validucode(String unique){
+        int u;
+        int unlen = unique.trim().length();
+        if(unlen == 6){
+            for(u = 0; u < unlen; u++){
+                if(!(Character.isDigit(unique.charAt(u)))){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+    //This validates the IP address
+    private boolean validipnum(String ipadd){
+        Pattern i = Pattern.compile("(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])");
+        int ipaddlen = ipadd.trim().length();
+        if(ipaddlen != 0 && (i.matcher(ipadd).find() == true)){
+            return true;
+        }
+        return false;
+    }
+    //This is to validate the linkedin profile
+    private boolean validlinkedin(String linkedin){
+        Pattern i = Pattern.compile("^https:\\/\\/[a-z]{2,3}\\.linkedin\\.com\\/.*$");
+        int linklen = linkedin.trim().length();
+        if(linklen != 0 && (i.matcher(linkedin).find() == true)){
             return true;
         }
         return false;

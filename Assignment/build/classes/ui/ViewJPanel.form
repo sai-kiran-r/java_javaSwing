@@ -63,7 +63,12 @@
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="lblipnum" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="lblbiodata" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblimage" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblucode" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblipnum" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -84,6 +89,7 @@
                                   <Component id="txtvehid" alignment="0" pref="134" max="32767" attributes="0"/>
                                   <Component id="txtlicnum" alignment="0" pref="134" max="32767" attributes="0"/>
                                   <Component id="txtbanum" alignment="0" pref="134" max="32767" attributes="0"/>
+                                  <Component id="txtucode" alignment="0" pref="134" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="83" max="32767" attributes="0"/>
                           </Group>
@@ -175,7 +181,16 @@
                           <Component id="lblipnum" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtipnum" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="800" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="lblbiodata" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <Component id="lblimage" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblucode" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtucode" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="410" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -350,6 +365,26 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JLabel" name="lblbiodata">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Biometric data:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblimage">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Your Image:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblucode">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Unique Code:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtucode">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtucodeActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
