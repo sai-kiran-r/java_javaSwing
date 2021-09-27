@@ -65,7 +65,6 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="lblbiodata" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblimage" alignment="1" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblucode" alignment="1" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblipnum" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -90,6 +89,7 @@
                                   <Component id="txtlicnum" alignment="0" pref="134" max="32767" attributes="0"/>
                                   <Component id="txtbanum" alignment="0" pref="134" max="32767" attributes="0"/>
                                   <Component id="txtucode" alignment="0" pref="134" max="32767" attributes="0"/>
+                                  <Component id="txtbiodata" alignment="0" pref="134" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="83" max="32767" attributes="0"/>
                           </Group>
@@ -181,16 +181,17 @@
                           <Component id="lblipnum" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtipnum" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="lblbiodata" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                      <Component id="lblimage" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblbiodata" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtbiodata" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblucode" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtucode" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="410" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="515" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -370,11 +371,6 @@
                 <Property name="text" type="java.lang.String" value="Biometric data:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblimage">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Your Image:"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="lblucode">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Unique Code:"/>
@@ -383,6 +379,11 @@
             <Component class="javax.swing.JTextField" name="txtucode">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtucodeActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtbiodata">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtbiodataActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.awt.Image;
+
 /**
  *
  * @author kiranreddy
@@ -26,7 +28,26 @@ public class Product {
     private String linkdin;
     private String ipaddr;
     private String ucode;
-
+    
+    private Image bioimage; 
+    private Image faceimage;
+    
+    public Image getbioimage(){
+        return bioimage;
+    }
+    
+    public void setbioimage(){
+        this.bioimage = bioimage;
+    }
+    
+    public Image getfaceimage(){
+        return faceimage;
+    }
+    
+    public void setfaceimage(){
+        this.faceimage = faceimage;
+    }
+    
     public String getName() {
         return name;
     }

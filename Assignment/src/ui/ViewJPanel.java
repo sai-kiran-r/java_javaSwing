@@ -67,9 +67,9 @@ public class ViewJPanel extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         txtgeodata = new javax.swing.JTextArea();
         lblbiodata = new javax.swing.JLabel();
-        lblimage = new javax.swing.JLabel();
         lblucode = new javax.swing.JLabel();
         txtucode = new javax.swing.JTextField();
+        txtbiodata = new javax.swing.JTextField();
 
         lbldevid.setText("Device Identifier:");
 
@@ -195,13 +195,17 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         lblbiodata.setText("Biometric data:");
 
-        lblimage.setText("Your Image:");
-
         lblucode.setText("Unique Code:");
 
         txtucode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtucodeActionPerformed(evt);
+            }
+        });
+
+        txtbiodata.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtbiodataActionPerformed(evt);
             }
         });
 
@@ -236,7 +240,6 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblbiodata)
-                                    .addComponent(lblimage)
                                     .addComponent(lblucode)
                                     .addComponent(lblipnum))
                                 .addGap(3, 3, 3)))
@@ -257,7 +260,8 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addComponent(txtvehid, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
                             .addComponent(txtlicnum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
                             .addComponent(txtbanum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(txtucode, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
+                            .addComponent(txtucode, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                            .addComponent(txtbiodata, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
                         .addGap(0, 83, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -328,15 +332,15 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblipnum)
                     .addComponent(txtipnum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(lblbiodata)
-                .addGap(68, 68, 68)
-                .addComponent(lblimage)
-                .addGap(48, 48, 48)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblbiodata)
+                    .addComponent(txtbiodata, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblucode)
                     .addComponent(txtucode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(410, 410, 410))
+                .addGap(515, 515, 515))
         );
 
         jScrollPane2.setViewportView(jPanel1);
@@ -413,6 +417,10 @@ public class ViewJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtucodeActionPerformed
 
+    private void txtbiodataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbiodataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtbiodataActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -427,7 +435,6 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblfaxnum;
     private javax.swing.JLabel lblgeodata;
     private javax.swing.JLabel lblhpnum;
-    private javax.swing.JLabel lblimage;
     private javax.swing.JLabel lblipnum;
     private javax.swing.JLabel lbllicnum;
     private javax.swing.JLabel lbllinkdin;
@@ -438,6 +445,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblucode;
     private javax.swing.JLabel lblvehid;
     private javax.swing.JTextField txtbanum;
+    private javax.swing.JTextField txtbiodata;
     private javax.swing.JTextField txtdate;
     private javax.swing.JTextField txtdevid;
     private javax.swing.JTextField txtemail;
@@ -473,6 +481,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtlinkdin.setText(product.getLinkdin());
         txtipnum.setText(product.getIpaddr());
         txtucode.setText(product.getucode());
+        txtbiodata.setText("Image uploaded ");
         
         
     }

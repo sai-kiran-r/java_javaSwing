@@ -5,11 +5,14 @@
  */
 package ui;
 
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import model.Product;
 
 /**
@@ -73,12 +76,10 @@ public class CreateJPanel extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         txtgeodata = new javax.swing.JTextArea();
         lblbiodata = new javax.swing.JLabel();
-        lblimage = new javax.swing.JLabel();
         lblucode = new javax.swing.JLabel();
         txtucode = new javax.swing.JTextField();
-        txtbiodata = new javax.swing.JButton();
-        txtimage = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btnimage = new javax.swing.JButton();
 
         setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
 
@@ -213,8 +214,6 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         lblbiodata.setText("Biometric data:");
 
-        lblimage.setText("Image:");
-
         lblucode.setText("Unique Code:");
 
         txtucode.addActionListener(new java.awt.event.ActionListener() {
@@ -223,21 +222,14 @@ public class CreateJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtbiodata.setText("Submit");
-        txtbiodata.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtbiodataActionPerformed(evt);
-            }
-        });
-
-        txtimage.setText("Submit");
-        txtimage.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtimageActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("(MM/DD/YYYY)");
+
+        btnimage.setText("Submit");
+        btnimage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnimageActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -274,7 +266,6 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblipnum)
                                     .addComponent(lblbiodata)
-                                    .addComponent(lblimage)
                                     .addComponent(lblucode))
                                 .addGap(3, 3, 3)))
                         .addGap(77, 77, 77)
@@ -296,8 +287,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addComponent(txtlicnum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
                                 .addComponent(txtbanum, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
                                 .addComponent(txtucode, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
-                            .addComponent(txtbiodata, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtimage, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnimage, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 81, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -376,16 +366,12 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblbiodata)
-                    .addComponent(txtbiodata))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblimage)
-                    .addComponent(txtimage))
+                    .addComponent(btnimage))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblucode)
                     .addComponent(txtucode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                .addGap(92, 92, 92)
                 .addComponent(btnsave)
                 .addGap(171, 171, 171))
         );
@@ -438,14 +424,15 @@ public class CreateJPanel extends javax.swing.JPanel {
         boolean ucodevalid = this.validucode(txtucode.getText());
         boolean ipnumvalid = this.validipnum(txtipnum.getText());
         boolean linkvalid = this.validlinkedin(txtlinkdin.getText());
+
+             
         
-        
-        if( 
-         namevalid  && datevalid && televalid && faxvalid
+         
+         if(namevalid  && datevalid && televalid && faxvalid
           && geovalid && ssnvalid && medrecvalid && healthvalid    
           && emailvalid 
           && bankvalid && licevalid && vehidvalid && devicevalid
-          && ucodevalid && ipnumvalid && linkvalid
+          && ucodevalid && ipnumvalid && linkvalid 
                 ){
             this.product.setName(txtname.getText());
             this.product.setGeodata(txtgeodata.getText());
@@ -463,16 +450,25 @@ public class CreateJPanel extends javax.swing.JPanel {
             this.product.setLinkdin(txtlinkdin.getText());
             this.product.setIpaddr(txtipnum.getText());
             this.product.setucode(txtucode.getText());
-
             JOptionPane.showMessageDialog(this, "Details saved successfully");
         }
         else{
-            
-            System.out.println("enter valid data");
+            String errormessage = String.format("Please Enter valid details \n" +
+            "Name Valid: %s \n address Valid: %s \n" +
+             "date of birth: %s \n telephone:- %s \n" +
+             "Fax Number valid: %s \n Email Address valid: %s \n" +
+             "SSN valid: %s \n Medical Record valid: %s \n Health record: %s \n"+
+             "Bank Account Number valid: %s \nLicense Nnumber: %s \n "+
+             "Vehical ID: %s \n Device ID: %s \n "+
+             "Linkedin valid: %s \n IP Address: %s \n Unique Code: %s",
+             namevalid, geovalid, datevalid, televalid, faxvalid, emailvalid,
+             ssnvalid, medrecvalid, healthvalid, bankvalid, licevalid,       
+             vehidvalid, devicevalid,
+             linkvalid, ipnumvalid, ucodevalid);
+            JOptionPane.showMessageDialog(this, errormessage);
+//            System.out.println("enter valid data");
            
         }
-        
-        
     }//GEN-LAST:event_btnsaveActionPerformed
 
     private void txtbanumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbanumActionPerformed
@@ -519,16 +515,25 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtucodeActionPerformed
 
-    private void txtbiodataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbiodataActionPerformed
+    private void btnimageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnimageActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtbiodataActionPerformed
+        JFileChooser browseImageFile = new JFileChooser();
 
-    private void txtimageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtimageActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtimageActionPerformed
+        FileNameExtensionFilter fileExtension = new FileNameExtensionFilter("Images", "png","jpeg");
+        browseImageFile.addChoosableFileFilter(fileExtension);
+        int showOpenDialogue = browseImageFile.showOpenDialog(null);
+
+        if (showOpenDialogue == JFileChooser.APPROVE_OPTION){
+            File slectedImageFile = browseImageFile.getSelectedFile();
+            String selectedImagePath = slectedImageFile.getAbsolutePath();
+            JOptionPane.showMessageDialog(null, selectedImagePath);
+        
+    }
+    }//GEN-LAST:event_btnimageActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnimage;
     private javax.swing.JButton btnsave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -543,7 +548,6 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblfaxnum;
     private javax.swing.JLabel lblgeodata;
     private javax.swing.JLabel lblhpnum;
-    private javax.swing.JLabel lblimage;
     private javax.swing.JLabel lblipnum;
     private javax.swing.JLabel lbllicnum;
     private javax.swing.JLabel lbllinkdin;
@@ -554,14 +558,12 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblucode;
     private javax.swing.JLabel lblvehid;
     private javax.swing.JTextField txtbanum;
-    private javax.swing.JButton txtbiodata;
     private javax.swing.JTextField txtdate;
     private javax.swing.JTextField txtdevid;
     private javax.swing.JTextField txtemail;
     private javax.swing.JTextField txtfaxnum;
     private javax.swing.JTextArea txtgeodata;
     private javax.swing.JTextField txthpnum;
-    private javax.swing.JButton txtimage;
     private javax.swing.JTextField txtipnum;
     private javax.swing.JTextField txtlicnum;
     private javax.swing.JTextField txtlinkdin;
@@ -578,7 +580,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         int i;
         int stringlen = name.trim().length();
         for(i = 0; i < stringlen; i++){
-            if(!(Character.isAlphabetic(name.charAt(i)))){
+            if((stringlen != 0) && !(Character.isAlphabetic(name.charAt(i)))){
                 return false;
             }
         }

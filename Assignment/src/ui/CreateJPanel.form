@@ -75,7 +75,6 @@
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="lblipnum" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblbiodata" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblimage" alignment="1" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblucode" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
@@ -101,8 +100,7 @@
                                       <Component id="txtbanum" alignment="0" pref="134" max="32767" attributes="0"/>
                                       <Component id="txtucode" alignment="0" pref="134" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="txtbiodata" min="-2" pref="75" max="-2" attributes="0"/>
-                                  <Component id="txtimage" min="-2" pref="75" max="-2" attributes="0"/>
+                                  <Component id="btnimage" min="-2" pref="124" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="81" max="32767" attributes="0"/>
                           </Group>
@@ -203,19 +201,14 @@
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblbiodata" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtbiodata" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblimage" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtimage" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnimage" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblucode" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtucode" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                       <Component id="btnsave" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
                   </Group>
@@ -405,11 +398,6 @@
                 <Property name="text" type="java.lang.String" value="Biometric data:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblimage">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Image:"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="lblucode">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Unique Code:"/>
@@ -420,26 +408,18 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtucodeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="txtbiodata">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Submit"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtbiodataActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="txtimage">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Submit"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtimageActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="(MM/DD/YYYY)"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnimage">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Submit"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnimageActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
