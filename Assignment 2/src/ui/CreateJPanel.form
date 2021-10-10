@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="jScrollPane1" alignment="1" pref="603" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="jScrollPane1" alignment="0" pref="675" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanel2">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="btnSubmit" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="246" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" pref="580" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="lblYear" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblCompany" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblSeats" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblSerial" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblModel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblAvail" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblCity" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblExpiry" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtExpiry" alignment="0" pref="134" max="32767" attributes="0"/>
+                                          <Component id="txtCity" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtCompany" max="32767" attributes="0"/>
+                                          <Component id="txtYear" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtSeats" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtSerial" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtModel" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="btnYes" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btnNo" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="37" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" pref="33" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblCompany" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCompany" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblSeats" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtSeats" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblSerial" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtSerial" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblModel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtModel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblAvail" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnYes" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtExpiry" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblExpiry" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="47" max="32767" attributes="0"/>
+                          <Component id="btnSubmit" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Lucida Grande" size="18" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Car Details"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblCompany">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Company:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblYear">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Year of Manufactured:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblSeats">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Avaliable Seats:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblSerial">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Serial Number:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblModel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Model Number:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblAvail">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Availability:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblCity">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="City:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblExpiry">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Maintainance Expiry date:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnSubmit">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Submit"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSubmitActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtYear">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtYearActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtSeats">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtModel">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtModelActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtSerial">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtExpiry">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtCity">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtCompany">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCompanyActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="btnYes">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Yes"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="btnNo">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="No"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
