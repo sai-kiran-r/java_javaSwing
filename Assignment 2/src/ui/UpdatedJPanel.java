@@ -5,7 +5,12 @@
  */
 package ui;
 
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import javax.swing.table.DefaultTableModel;
+import model.Product;
 import model.ProductHistory;
+import model.ProductUpdateHistory;
 
 /**
  *
@@ -17,9 +22,18 @@ public class UpdatedJPanel extends javax.swing.JPanel {
      * Creates new form UpdatedJPanel
      */
     ProductHistory history;
+    
+    ProductUpdateHistory catalogHistory;
+    
+    
+    
     public UpdatedJPanel(ProductHistory history) {
         initComponents();
         this.history = history;
+        
+        this.catalogHistory = new ProductUpdateHistory();
+        
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd 'at' HH:mm:ss");
     }
 
     /**
@@ -36,6 +50,9 @@ public class UpdatedJPanel extends javax.swing.JPanel {
         tblUpdated = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         txtUpdated = new javax.swing.JTextField();
+        btnUpdate = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(28, 93, 153));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("Updated Cart with Time");
@@ -67,39 +84,46 @@ public class UpdatedJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(228, 228, 228)
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUpdated, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(214, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnUpdate)
+                            .addComponent(txtUpdated, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(99, 99, 99)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtUpdated, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
+                .addGap(32, 32, 32)
+                .addComponent(btnUpdate)
+                .addGap(28, 28, 28)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(161, 161, 161))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -107,8 +131,48 @@ public class UpdatedJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUpdatedActionPerformed
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        
+        
+        DateTimeFormatter myObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        try
+        {
+            String DateFormat = catalogHistory.getLastUpdateTime().format(myObj);
+            txtUpdated.setText(DateFormat);
+        }
+        catch(NullPointerException e)
+                {
+                   txtUpdated.setText("");
+                }
+        
+        
+        
+        DefaultTableModel model = (DefaultTableModel) tblUpdated.getModel();
+        model.setRowCount(0);
+        
+        for(Product vs : history.getHistory())
+        {
+            
+                Object[] row = new Object[1];
+            row[0] = vs;
+            row[1] = vs.getCarYear();
+            row[2] = vs.getCarSeats();
+            row[3] = vs.getCarSerialnum();
+            row[4] = vs.getCarModelnum();
+            row[5] = vs.getCarAvaliablity();
+            row[6] = vs.getCarCity();
+            row[7] = vs.getCarExpired();
+            
+            model.addRow(row);
+            
+        }
+        
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;

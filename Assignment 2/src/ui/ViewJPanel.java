@@ -51,6 +51,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         btnCity = new javax.swing.JButton();
         ControlPanel = new javax.swing.JPanel();
 
+        ViewPanel.setBackground(new java.awt.Color(255, 255, 255));
+
         btnCompany.setText("Company");
         btnCompany.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

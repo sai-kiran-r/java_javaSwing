@@ -41,6 +41,8 @@ public class YearJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblModelyear = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(28, 93, 153));
+
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("Search by Manufacture Year");
 

@@ -5,11 +5,13 @@
  */
 package ui;
 
+import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import model.Product;
 import model.ProductHistory;
+import model.ProductUpdateHistory;
 
 /**
  *
@@ -20,12 +22,14 @@ public class UpdateJPanel extends javax.swing.JPanel {
     /**
      * Creates new form UpdateJPanel
      */
+    ProductUpdateHistory catalogHistory;
     
     ProductHistory history;
     
     public UpdateJPanel(ProductHistory history) {
         initComponents();
         this.history = history;
+        this.catalogHistory = new ProductUpdateHistory();
         
         populateTable();
     }
@@ -64,6 +68,8 @@ public class UpdateJPanel extends javax.swing.JPanel {
         lblCity = new javax.swing.JLabel();
         lblExpiry = new javax.swing.JLabel();
         txtAvail = new javax.swing.JTextField();
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -282,10 +288,21 @@ public class UpdateJPanel extends javax.swing.JPanel {
             return;
         }
         
-        if(txtCity.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please select any row for updating");
+        if( this.validateSerial()){
+            JOptionPane.showMessageDialog(this, "Please enter valid serial");
             return;
         }
+        
+        if(txtCompany.getText().isEmpty() || txtYear.getText().isEmpty() ||
+            txtSeats.getText().isEmpty() || txtSerial.getText().isEmpty() ||
+            txtModel.getText().isEmpty() || txtAvail.getText().isEmpty() ||
+            txtCity.getText().isEmpty() || txtExpiry.getText().isEmpty()
+                ){
+            JOptionPane.showMessageDialog(this, "Please enter all details");
+            return;
+        }
+        
+        
         
         DefaultTableModel model = (DefaultTableModel) tblcars.getModel();
         JTextField [] arrJTextFields = { txtCompany, txtYear, txtSeats, txtSerial,
@@ -302,8 +319,9 @@ public class UpdateJPanel extends javax.swing.JPanel {
         
         
         
-        
         history.updateDetails(selectedRowIndex,updateDetails);
+        LocalDateTime obj = LocalDateTime.now();
+        catalogHistory.setLastUpdateTime(obj);
         
     }//GEN-LAST:event_btnEditActionPerformed
 
@@ -395,7 +413,18 @@ public class UpdateJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtSerial;
     private javax.swing.JTextField txtYear;
     // End of variables declaration//GEN-END:variables
-
+    
+    
+    private boolean validateSerial(){
+        int Serial = Integer.parseInt(txtSerial.getText());
+        if(Product.unSerial.add(Serial)){
+            return true;
+        }
+        return false;
+    }
+    
+    
+    
     private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblcars.getModel();
         model.setRowCount(0);

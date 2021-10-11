@@ -5,6 +5,9 @@
  */
 package model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author kiranreddy
@@ -20,6 +23,7 @@ public class Product {
     private String carModelnum;
     private String carCity;
     private String carExpired;
+    public static Set<Integer> unSerial = new HashSet<Integer>(); 
 
     public String getCarAvaliablity() {
         return CarAvaliablity;

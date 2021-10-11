@@ -5,6 +5,8 @@
  */
 package ui;
 
+import javax.swing.table.DefaultTableModel;
+import model.Product;
 import model.ProductHistory;
 
 /**
@@ -32,22 +34,14 @@ public class UberJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtUber = new javax.swing.JTextField();
         btnUber = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblUber = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(28, 93, 153));
+
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("Uber Car Manufacturer's");
-
-        jLabel2.setText("Model Name");
-
-        txtUber.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUberActionPerformed(evt);
-            }
-        });
 
         btnUber.setText("Search");
         btnUber.addActionListener(new java.awt.event.ActionListener() {
@@ -58,19 +52,19 @@ public class UberJPanel extends javax.swing.JPanel {
 
         tblUber.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "Company", "Year", "Seats", "Serial  ", "Model", "Availability", "City", "Expirey "
+                "Company"
             }
         ));
         jScrollPane2.setViewportView(tblUber);
@@ -86,50 +80,55 @@ public class UberJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(259, 259, 259)
-                        .addComponent(btnUber))
+                        .addGap(238, 238, 238)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(txtUber, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(250, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2))
+                        .addGap(272, 272, 272)
+                        .addComponent(btnUber)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addComponent(jLabel1)
-                .addGap(75, 75, 75)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtUber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(83, 83, 83)
                 .addComponent(btnUber)
-                .addGap(78, 78, 78)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUberActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUberActionPerformed
-
     private void btnUberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUberActionPerformed
         // TODO add your handling code here:
+        
+        DefaultTableModel model = (DefaultTableModel) tblUber.getModel();
+        model.setRowCount(0);
+        
+        for(Product vs : history.getHistory())
+        {
+            
+                Object[] row = new Object[1];
+            row[0] = vs;
+//            row[1] = vs.getCarYear();
+//            row[2] = vs.getCarSeats();
+//            row[3] = vs.getCarSerialnum();
+//            row[4] = vs.getCarModelnum();
+//            row[5] = vs.getCarAvaliablity();
+//            row[6] = vs.getCarCity();
+//            row[7] = vs.getCarExpired();
+            
+            model.addRow(row);
+            
+        }
     }//GEN-LAST:event_btnUberActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnUber;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblUber;
-    private javax.swing.JTextField txtUber;
     // End of variables declaration//GEN-END:variables
 }

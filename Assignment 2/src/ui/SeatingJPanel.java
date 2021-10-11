@@ -43,6 +43,8 @@ public class SeatingJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtSeatmax = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(28, 93, 153));
+
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("Search by Seating Capacity");
 

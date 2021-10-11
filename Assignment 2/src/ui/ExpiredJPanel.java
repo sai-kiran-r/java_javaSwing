@@ -6,6 +6,10 @@
 package ui;
 
 import model.ProductHistory;
+import java.time.LocalDateTime;
+import javax.swing.table.DefaultTableModel;
+import java.util.Date;
+import model.Product;
 
 /**
  *
@@ -34,6 +38,9 @@ public class ExpiredJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblExpired = new javax.swing.JTable();
+        btnExpired = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(28, 93, 153));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("Car's with Expired Date");
@@ -57,11 +64,25 @@ public class ExpiredJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(tblExpired);
 
+        btnExpired.setText("Search");
+        btnExpired.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExpiredActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(264, 264, 264)
+                .addComponent(btnExpired)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(218, 218, 218)
@@ -70,10 +91,12 @@ public class ExpiredJPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(198, 198, 198)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(165, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addGap(56, 56, 56)
+                .addComponent(btnExpired)
+                .addGap(201, 201, 201))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(102, 102, 102)
@@ -82,8 +105,41 @@ public class ExpiredJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnExpiredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExpiredActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblExpired.getModel();
+        model.setRowCount(0);
+        
+        
+        for(Product vs : history.getHistory())
+        {
+            Date dat = new Date(vs.getCarExpired());
+            Date today = new Date();
+            LocalDateTime now = LocalDateTime.now();
+            dat.before(today);
+            
+            if(dat.before(today)){
+                Object[] row = new Object[8];
+            row[0] = vs;
+            row[1] = vs.getCarYear();
+            row[2] = vs.getCarSeats();
+            row[3] = vs.getCarSerialnum();
+            row[4] = vs.getCarModelnum();
+            row[5] = vs.getCarAvaliablity();
+            row[6] = vs.getCarCity();
+            row[7] = vs.getCarExpired();
+            
+            model.addRow(row);
+            }
+        }
+        
+        
+        
+    }//GEN-LAST:event_btnExpiredActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExpired;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblExpired;

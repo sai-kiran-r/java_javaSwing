@@ -72,6 +72,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         btnYes = new javax.swing.JRadioButton();
         btnNo = new javax.swing.JRadioButton();
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Car Details");
@@ -210,7 +212,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,7 +262,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         
         
         if( validCompany && validyear && validModel &&
-              validSeat && validCity && validExpiry){
+              validSeat && validCity && validExpiry && this.validateSerial()){
 //             validSerial
         Product vs = history.addnewProducts();
         //Try this
@@ -346,6 +348,17 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtSerial;
     private javax.swing.JTextField txtYear;
     // End of variables declaration//GEN-END:variables
+    
+
+
+    private boolean validateSerial(){
+        int Serial = Integer.parseInt(txtSerial.getText());
+        if(Product.unSerial.add(Serial)){
+            return true;
+        }
+        return false;
+    }
+
     // This will validate if the company name is proper
     // We cannot enter numeric values
     private boolean validCompany(String name){
@@ -365,14 +378,14 @@ public class CreateJPanel extends javax.swing.JPanel {
         Pattern yearPattern = Pattern.compile("[0-9]{4}");
         Matcher yearMatch = yearPattern.matcher(year);
         if(yearMatch.matches()){
-            if(carYear >= 1990 && carYear <= 2021){
+            if(carYear >= 1990 && carYear <= 2022){
                 return true;
             }
         }
         return false;
     }
     private boolean validSerial(){
-        String serial = txtSeats.getText();
+        String serial = txtSerial.getText();
         int s = Integer.parseInt(serial);
         Pattern yearPattern = Pattern.compile("[0-9]{4}");
         Matcher seating = yearPattern.matcher(serial);
@@ -442,5 +455,5 @@ public class CreateJPanel extends javax.swing.JPanel {
 //        return false;
 //    }
     
-    
+        
 }

@@ -7,6 +7,14 @@ package ui;
 
 //import model.Product;
 
+//import java.nio.charset.StandardCharsets;
+//import java.io.BufferedReader;
+//import java.io.FileNotFoundException;
+//import java.io.IOException;
+//import java.nio.file.Files;
+//import java.nio.file.Files;
+//import java.nio.file.Path;
+//import java.nio.file.Paths;
 import model.ProductHistory;
 
 
@@ -23,10 +31,13 @@ public class MainJFrame extends javax.swing.JFrame {
     ProductHistory history;
     
     
+    
     public MainJFrame() {
         initComponents();
 //        product = new Product();
          history = new ProductHistory();
+//         uploadDataFromCSV();
+        
         
     }
 
@@ -39,6 +50,7 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSeparator1 = new javax.swing.JSeparator();
         splitpane = new javax.swing.JSplitPane();
         controlPanel = new javax.swing.JPanel();
         btnCreate = new javax.swing.JButton();
@@ -47,6 +59,8 @@ public class MainJFrame extends javax.swing.JFrame {
         viewPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        controlPanel.setBackground(new java.awt.Color(28, 93, 153));
 
         btnCreate.setText("Create");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -191,7 +205,41 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
     private javax.swing.JPanel controlPanel;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSplitPane splitpane;
     private javax.swing.JPanel viewPanel;
     // End of variables declaration//GEN-END:variables
+
+//    private CarFleet getDataFromCSV() {
+//        CarFleet csvData = new CarFleet();
+//        Path pathToFile = Paths.get("CarsFile.csv");
+//        try(BufferedReader br = Files.newBufferedReader(pathToFile,StandardCharsets.US_ASCII)){
+//        String line = br.readLine();
+//        while(line!= null){
+//        String[] attributes = line.split(",");
+//        Car car = addCar(attributes);
+//        csvData.addNewCar(car);
+//        line = br.readLine();
+//
+//        }
+//        }catch(IOException ioe){
+//        ioe.printStackTrace();
+//        }
+//        return csvData;
+//        }
+//        private Car addCar(String[] attributes) {
+//        Car car = new Car();
+//        car.setManufacturer(attributes[0]);
+//        car.setYear(Integer.parseInt(attributes[1]));
+//        car.setSeats(Integer.parseInt(attributes[2]));
+//        car.setModel(attributes[3]);
+//        car.setAvailability(Boolean.parseBoolean(attributes[4]));
+//        car.setMainCertYN(Boolean.parseBoolean(attributes[5]));
+//        car.setCity(attributes[6]);
+//        car.setSerialNo(attributes[7]);
+//        return car;
+//
+//        }
+//        }
+    
 }

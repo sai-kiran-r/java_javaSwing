@@ -43,6 +43,8 @@ public class CompanyJPanel extends javax.swing.JPanel {
         txtCompany = new javax.swing.JTextField();
         btnCsearch = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(28, 93, 153));
+
         tblCompany.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="99" green="5d" red="1c" type="rgb"/>
+    </Property>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -24,21 +29,15 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="259" max="-2" attributes="0"/>
-                      <Component id="btnUber" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="238" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="154" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" pref="84" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="txtUber" min="-2" pref="127" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="272" max="-2" attributes="0"/>
+                      <Component id="btnUber" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="250" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane2" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,16 +46,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtUber" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
               <Component id="btnUber" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="136" max="-2" attributes="0"/>
-              <EmptySpace pref="147" max="32767" attributes="0"/>
+              <EmptySpace pref="243" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,16 +63,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Uber Car Manufacturer&apos;s"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Model Name"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtUber">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUberActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnUber">
       <Properties>
@@ -98,16 +82,18 @@
         <Component class="javax.swing.JTable" name="tblUber">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="8" rowCount="10">
+              <Table columnCount="1" rowCount="10">
                 <Column editable="true" title="Company" type="java.lang.Object"/>
-                <Column editable="true" title="Year" type="java.lang.Object"/>
-                <Column editable="true" title="Seats" type="java.lang.Object"/>
-                <Column editable="true" title="Serial  " type="java.lang.Object"/>
-                <Column editable="true" title="Model" type="java.lang.Object"/>
-                <Column editable="true" title="Availability" type="java.lang.Object"/>
-                <Column editable="true" title="City" type="java.lang.Object"/>
-                <Column editable="true" title="Expirey " type="java.lang.Object"/>
               </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
             </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
