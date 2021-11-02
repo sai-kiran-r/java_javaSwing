@@ -122,8 +122,17 @@ public class FinalJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String communityName = txtCommunity.getText().toString();
         
-        this.populateTable();
+        if(txtCommunity.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please enter Community name");
+            return;
+        }
+        else {
+            this.populateTable();
+        }
+
+//        this.populateTable();
         
         
 
@@ -145,11 +154,14 @@ public class FinalJPanel extends javax.swing.JPanel {
     private void populateTable(){
         DefaultTableModel model = (DefaultTableModel) tblPerson.getModel();
         model.setRowCount(0);
-        
+        String communityName = txtCommunity.getText().toString();
         
         this.patientDirectory.populatePatients();
         
         for(Patient pModel : this.patientDirectory.getPatientList()){
+            if(!communityName.equals(pModel.getCommunity())){
+                continue;
+            }
             Object[] row = new Object[6];
             
             row[0] = pModel;
@@ -161,6 +173,21 @@ public class FinalJPanel extends javax.swing.JPanel {
             model.addRow(row);
         }
     }
+    
+    
+      
+//        this.patientDirec.populatePatients();
+//        String communityName = comboCommunity.getSelectedItem().toString();
+////        
+//        for(Patient patientModel : this.patientDirec.getPatientList()){
+//            if(!communityName.equals(patientModel.getCommunityName())){
+//                continue;
+//            }
+//            System.out.println(patientModel);
+//            Object[] row = new Object[8];
+//            
+//        }
+//    }
 
 }
 
