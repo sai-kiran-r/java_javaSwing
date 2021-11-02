@@ -24,13 +24,14 @@ public class Patient extends Person {
     }
     
     public Patient(String firstName, String lastName, Person p, Encounter ecc){
-        super(firstName, lastName, p.getPersonAddress(), p.getPersonId());
+        super(firstName, lastName, p.getPersonAddress(), p.getPersonId(), p.getCommunity(), p.getCity());
         this.patientEncount = ecc;
     }
     
     public int getAge(){
         return patientEncount.getAge();
     }
+    
     
     @Override
     public String toString(){

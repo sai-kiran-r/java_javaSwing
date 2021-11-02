@@ -60,10 +60,16 @@ public class EncounterJPanel extends javax.swing.JPanel {
         txtDate = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
 
-        lbTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitle.setText("Encounter Details");
+        setBackground(new java.awt.Color(0, 0, 0));
 
+        lbTitle.setBackground(new java.awt.Color(0, 0, 0));
+        lbTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbTitle.setText("Add Encounter Details");
+
+        lblPersonId.setBackground(new java.awt.Color(0, 0, 0));
+        lblPersonId.setForeground(new java.awt.Color(255, 255, 255));
         lblPersonId.setText("Person Id:");
 
         txtPersonId.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -77,6 +83,8 @@ public class EncounterJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblBp.setBackground(new java.awt.Color(0, 0, 0));
+        lblBp.setForeground(new java.awt.Color(255, 255, 255));
         lblBp.setText("Blood Pressure:");
 
         txtBp.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -90,6 +98,8 @@ public class EncounterJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblTemperature.setBackground(new java.awt.Color(0, 0, 0));
+        lblTemperature.setForeground(new java.awt.Color(255, 255, 255));
         lblTemperature.setText("Temparature:");
 
         txttemparature.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -103,6 +113,8 @@ public class EncounterJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblAge.setBackground(new java.awt.Color(0, 0, 0));
+        lblAge.setForeground(new java.awt.Color(255, 255, 255));
         lblAge.setText("Age:");
 
         txtAge.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -116,6 +128,8 @@ public class EncounterJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblDate.setBackground(new java.awt.Color(0, 0, 0));
+        lblDate.setForeground(new java.awt.Color(255, 255, 255));
         lblDate.setText("Date:");
 
         txtDate.addFocusListener(new java.awt.event.FocusAdapter() {

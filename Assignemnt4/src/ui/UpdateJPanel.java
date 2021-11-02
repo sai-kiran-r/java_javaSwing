@@ -62,6 +62,9 @@ public class UpdateJPanel extends javax.swing.JPanel {
         lblAddress1 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(new java.awt.Color(255, 255, 255));
+
         tblPerson.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -76,9 +79,11 @@ public class UpdateJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblPerson);
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Update Person Details");
 
+        lblFirstName.setForeground(new java.awt.Color(255, 255, 255));
         lblFirstName.setText("First Name: ");
 
         txtFirstName.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -92,6 +97,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblLastName.setForeground(new java.awt.Color(255, 255, 255));
         lblLastName.setText("Last Name: ");
 
         txtLastName.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -105,6 +111,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblAddress.setText("Address: ");
 
         txtAddress.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -118,6 +125,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblCommunity.setForeground(new java.awt.Color(255, 255, 255));
         lblCommunity.setText("Community:");
 
         txtCommunity.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -131,6 +139,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblCity.setForeground(new java.awt.Color(255, 255, 255));
         lblCity.setText("City:");
 
         txtCity.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -165,6 +174,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblAddress1.setForeground(new java.awt.Color(255, 255, 255));
         lblAddress1.setText("Identity Number:");
 
         txtId.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -396,6 +406,8 @@ public class UpdateJPanel extends javax.swing.JPanel {
         Person p = new Person(firstName, lastName, address, id, community, city);
         this.modelPersonObj.UpdatePersonDetails(p, selectedRowIndex);
         this.populateTable();
+        System.out.println(p.getCommunity());
+        System.out.println(this.modelPersonObj.getPersonData(p.getPersonId()).getCommunity());
         
         JOptionPane.showMessageDialog(this, "Person details Updated Successfully");
         }

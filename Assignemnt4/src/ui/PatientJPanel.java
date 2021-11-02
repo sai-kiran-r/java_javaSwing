@@ -52,6 +52,8 @@ public class PatientJPanel extends javax.swing.JPanel {
         txtPersonId = new javax.swing.JTextField();
         btnViewHistory = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 0, 0));
+
         tblPerson.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -66,9 +68,11 @@ public class PatientJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblPerson);
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText(" Patient Details");
+        lblTitle.setText(" Encounter Details");
 
+        lbPersonId.setForeground(new java.awt.Color(255, 255, 255));
         lbPersonId.setText("Person Id :");
 
         btnViewHistory.setText("View");

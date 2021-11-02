@@ -57,6 +57,10 @@ public class PatientDirectory {
     
     public boolean populatePatients(){
         for(Person p : personDirectory.getPersonList()){
+            
+        System.out.println(p.getCommunity());
+        System.out.println(this.personDirectory.getPersonData(p.getPersonId()).getCommunity());
+        
             ArrayList<Encounter> encounterArray = p.getEncounterHistory();
             Collections.sort(encounterArray);
             int encHistorySize = encounterArray.size();
@@ -68,7 +72,9 @@ public class PatientDirectory {
                ecc.getTemperature() >= maxTemperature || 
                ecc.getTemperature() <= minTemperature)
             {
+                this.removePatient(p);
                 patientList.add(new Patient(p.getPersonFirstName(),p.getPersonLastName(), p, ecc));
+                System.out.println(this.patientList);
             }
             else
             {

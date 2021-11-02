@@ -5,6 +5,7 @@
  */
 package ui;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Patient.Patient;
@@ -45,10 +46,15 @@ public class FinalJPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPerson = new javax.swing.JTable();
+        lblCommunity = new javax.swing.JLabel();
+        txtCommunity = new javax.swing.JTextField();
+
+        setBackground(new java.awt.Color(0, 0, 0));
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText(" Patient Detail");
+        lblTitle.setText("Search Patient Details");
 
         jButton1.setText("Load Details");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -59,16 +65,25 @@ public class FinalJPanel extends javax.swing.JPanel {
 
         tblPerson.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Last Name", "Person ID", "Blood Pressure", "Temperature", "Date Visted ", "Community"
+                "Name", "Last Name", "Person ID", "Blood Pressure", "Temperature", "Date Visted "
             }
         ));
         jScrollPane1.setViewportView(tblPerson);
+
+        lblCommunity.setForeground(new java.awt.Color(255, 255, 255));
+        lblCommunity.setText("Community Name:");
+
+        txtCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCommunityActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -81,8 +96,12 @@ public class FinalJPanel extends javax.swing.JPanel {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblCommunity)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
                 .addComponent(jButton1)
-                .addGap(289, 289, 289))
+                .addGap(114, 114, 114))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,7 +109,11 @@ public class FinalJPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblCommunity)
+                        .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(219, 219, 219))
@@ -99,15 +122,25 @@ public class FinalJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
         this.populateTable();
+        
+        
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCommunityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCommunityActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCommunity;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblPerson;
+    private javax.swing.JTextField txtCommunity;
     // End of variables declaration//GEN-END:variables
     private void populateTable(){
         DefaultTableModel model = (DefaultTableModel) tblPerson.getModel();
@@ -117,7 +150,7 @@ public class FinalJPanel extends javax.swing.JPanel {
         this.patientDirectory.populatePatients();
         
         for(Patient pModel : this.patientDirectory.getPatientList()){
-            Object[] row = new Object[7];
+            Object[] row = new Object[6];
             
             row[0] = pModel;
             row[1] = pModel.getPersonLastName();
@@ -125,7 +158,6 @@ public class FinalJPanel extends javax.swing.JPanel {
             row[3] = pModel.patientEncount.getBp();
             row[4] = pModel.patientEncount.getTemperature();
             row[5] = pModel.patientEncount.getEncounterDate();
-            row[6] = pModel.getCommunity();
             model.addRow(row);
         }
     }

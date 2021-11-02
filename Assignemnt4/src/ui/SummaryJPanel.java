@@ -49,10 +49,15 @@ public class SummaryJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSummary = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(new java.awt.Color(255, 255, 255));
+
         lblTitel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblTitel.setForeground(new java.awt.Color(255, 255, 255));
         lblTitel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitel.setText("Community Summary Details");
 
+        lblCommunity.setForeground(new java.awt.Color(255, 255, 255));
         lblCommunity.setText("Community:");
 
         txtCommunity.addActionListener(new java.awt.event.ActionListener() {
@@ -120,17 +125,21 @@ public class SummaryJPanel extends javax.swing.JPanel {
     private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
         // TODO add your handling code here:
         
+//        
+//        boolean validCommunity = this.validateCommunity(txtCommunity);
         
-        boolean validCommunity = this.validateCommunity(txtCommunity);
+        String communityName = txtCommunity.getText().toString() ;
         
-        
-        
-        String community = txtCommunity.getText();
+        if(txtCommunity.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please enter Community name");
+            return;
+        }
+        else{
         ArrayList<Patient> tempList = new ArrayList<Patient>();
         
-        
         for(Patient p : this.patientDirectory.getPatientList()){
-            if(p.getCommunity().equals(community)){
+            System.out.println(p);
+            if(p.getCommunity().equals(communityName)){
                 tempList.add(p);
             }
         }
@@ -139,22 +148,7 @@ public class SummaryJPanel extends javax.swing.JPanel {
                             "51-60", "61-70", "71-80", "81-90", "91-100"}; 
         
         this.populateTable(category, getCountOfAge);
-        
-//        else{
-//            UIManager.put("OptionPane.minimumSize",new Dimension(100,200));
-//            JOptionPane.showMessageDialog(this, "Enter valid community");
-//        }
-        
-//        String selectedCommunity = comboCommunity.getSelectedItem().toString();
-//        ArrayList<Patient> tempPatientList = new ArrayList<Patient>();
-//        
-//        for(Patient p : this.patientDirec.getPatientList()){
-//            if(p.getCommunityName().equals(selectedCommunity)){
-//                tempPatientList.add(p);
-//            }
-//        }
-
-       
+        }
 
         
 

@@ -53,10 +53,14 @@ public class AddJPanel extends javax.swing.JPanel {
         txtCity = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 0, 0));
+
         lbTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbTitle.setForeground(new java.awt.Color(255, 255, 255));
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitle.setText("Create Person Details");
 
+        lblFirstName.setForeground(new java.awt.Color(255, 255, 255));
         lblFirstName.setText("First Name: ");
 
         txtFirstName.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -70,6 +74,7 @@ public class AddJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblLastName.setForeground(new java.awt.Color(255, 255, 255));
         lblLastName.setText("Last Name: ");
 
         txtLastName.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -83,6 +88,7 @@ public class AddJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblAddress.setText("Address: ");
 
         txtAddress.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -96,6 +102,7 @@ public class AddJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblId.setForeground(new java.awt.Color(255, 255, 255));
         lblId.setText("Identity number: ");
 
         txtId.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -109,6 +116,7 @@ public class AddJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblCommunity.setForeground(new java.awt.Color(255, 255, 255));
         lblCommunity.setText("Community:");
 
         txtCommunity.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -122,6 +130,7 @@ public class AddJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblCity.setForeground(new java.awt.Color(255, 255, 255));
         lblCity.setText("City:");
 
         txtCity.addFocusListener(new java.awt.event.FocusAdapter() {

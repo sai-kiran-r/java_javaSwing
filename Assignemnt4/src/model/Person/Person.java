@@ -73,7 +73,7 @@ public class Person {
     }
 
     public String getCommunity() {
-        return community;
+        return this.community;
     }
 
     public void setCommunity(String community) {
