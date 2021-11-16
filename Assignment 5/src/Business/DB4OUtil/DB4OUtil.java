@@ -33,7 +33,7 @@ public class DB4OUtil {
     }
 
     private ObjectContainer createConnection() {
-        try {
+//        try {
 
             EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
             config.common().add(new TransparentPersistenceSupport());
@@ -47,10 +47,10 @@ public class DB4OUtil {
 
             ObjectContainer db = Db4oEmbedded.openFile(config, FILENAME);
             return db;
-        } catch (Exception ex) {
-            System.out.print(ex.getMessage());
-        }
-        return null;
+//        } catch (Exception ex) {
+//            System.out.print(ex.getMessage());
+//        }
+//        return null;
     }
 
     public synchronized void storeSystem(EcoSystem system) {
@@ -61,7 +61,7 @@ public class DB4OUtil {
     }
     
     public EcoSystem retrieveSystem(){
-        try{
+//        try{
             ObjectContainer conn = createConnection();
             ObjectSet<EcoSystem> systems = conn.query(EcoSystem.class); // Change to the object you want to save
             EcoSystem system;
@@ -73,9 +73,9 @@ public class DB4OUtil {
             }
             conn.close();
             return system;
-        }catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }
-        return null;
+//        }catch(Exception ex){
+//            System.out.println(ex.getMessage());
+//        }
+//        return null;
     }
 }
