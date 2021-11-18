@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Nithin Bharadwaj
+ * @author Kiranreddy
  */
 public class ManageDeliveryUsers extends javax.swing.JPanel {
 
@@ -26,7 +26,7 @@ public class ManageDeliveryUsers extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     EcoSystem system;
-    
+
     public ManageDeliveryUsers(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
         this.system = system;
@@ -63,7 +63,7 @@ public class ManageDeliveryUsers extends javax.swing.JPanel {
 
         lbTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitle.setText("Manage Delivery User Details");
+        lbTitle.setText("Delivery Partners Profiles");
 
         tblDeliveryUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -111,7 +111,7 @@ public class ManageDeliveryUsers extends javax.swing.JPanel {
 
         lbUsername.setText("Username :");
 
-        btnBack.setText("<<Back");
+        btnBack.setText("<< Go Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -143,37 +143,38 @@ public class ManageDeliveryUsers extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(btnBack)
-                        .addGap(61, 61, 61)
-                        .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbUsername)
-                                    .addComponent(lbName)
-                                    .addComponent(lbPassword)
-                                    .addComponent(lbUsername1)
-                                    .addComponent(lbUsername2))
-                                .addGap(42, 42, 42)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnView)
-                                        .addGap(2, 2, 2)
-                                        .addComponent(btnDelete)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnSubmit))
+                        .addGap(283, 283, 283)
+                        .addComponent(btnSubmit))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(45, 45, 45)
+                            .addComponent(btnBack)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(159, 159, 159)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lbUsername)
+                                        .addComponent(lbName)
+                                        .addComponent(lbPassword)
+                                        .addComponent(lbUsername1)
+                                        .addComponent(lbUsername2))
+                                    .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(txtPhoneNumber)
                                         .addComponent(txtAddress)
-                                        .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                                        .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                                        .addComponent(comboStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGap(4, 4, 4)))))
-                .addContainerGap(177, Short.MAX_VALUE))
+                                        .addComponent(txtName)
+                                        .addComponent(txtUsername)
+                                        .addComponent(comboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(27, 27, 27)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(btnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGap(14, 14, 14))))))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,31 +186,34 @@ public class ManageDeliveryUsers extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDelete)
-                    .addComponent(btnView)
-                    .addComponent(btnSubmit))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbUsername)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDelete)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnView)
+                        .addComponent(lbName)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbUsername1)
+                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbUsername2)
+                            .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(comboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbPassword)))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbName))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbUsername))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbPassword)
-                    .addComponent(comboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbUsername1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbUsername2))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addComponent(btnSubmit)
+                .addContainerGap(63, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -219,13 +223,15 @@ public class ManageDeliveryUsers extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        
+        //This takes us back to the previous page
         this.userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
         Component[] comps = this.userProcessContainer.getComponents();
-        for(Component comp : comps){
-            if(comp instanceof SystemAdminWorkAreaJPanel){
-                SystemAdminWorkAreaJPanel systemAdminWorkAreaJPanel= (SystemAdminWorkAreaJPanel) comp;
+        for (Component comp : comps) {
+            if (comp instanceof SystemAdminWorkAreaJPanel) {
+                SystemAdminWorkAreaJPanel systemAdminWorkAreaJPanel = (SystemAdminWorkAreaJPanel) comp;
                 systemAdminWorkAreaJPanel.populateTree();
             }
         }
@@ -234,7 +240,7 @@ public class ManageDeliveryUsers extends javax.swing.JPanel {
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
         int selectedRowIndex = tblDeliveryUsers.getSelectedRow();
-        if(selectedRowIndex < 0){
+        if (selectedRowIndex < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row");
             return;
         }
@@ -243,36 +249,38 @@ public class ManageDeliveryUsers extends javax.swing.JPanel {
         String userName = txtUsername.getText();
         String status = comboStatus.getSelectedItem().toString();
         String address = txtAddress.getText();
-        int phoneNumber = Integer.parseInt(txtPhoneNumber.getText());
-        
+        long phoneNumber = Long.parseLong(txtPhoneNumber.getText());
+
         ArrayList<DeliveryMan> restos = system.getDeliveryManDirectory().returnDeliveryAgentDetails();
-        for(DeliveryMan r: restos)
-        {
-            if(r.getName().equals(name))
-            {
-               r.getUa().setUsername(userName);
-               r.setStatus(status);
-               r.setPhoneNumber(Integer.parseInt(txtPhoneNumber.getText()));
-               r.setAddress(txtAddress.getText());
-               break;
+        for (DeliveryMan r : restos) {
+            if (r.getName().equals(name)) {
+                r.getUa().setUsername(userName);
+                r.setStatus(status);
+                r.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                r.setAddress(txtAddress.getText());
+                break;
             }
-            
+
         }
         JOptionPane.showMessageDialog(this, "Updated the DeliveryMan Details");
-        txtName.setText("");txtUsername.setText("");
-        txtAddress.setText("");txtPhoneNumber.setText("");
+        txtName.setText("");
+        txtUsername.setText("");
+        txtAddress.setText("");
+        txtPhoneNumber.setText("");
         populateTable();
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
+        
+        // this is to view the existing lines of data 
         int selectedRowIndex = tblDeliveryUsers.getSelectedRow();
-        if(selectedRowIndex < 0){
+        if (selectedRowIndex < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row to View");
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblDeliveryUsers.getModel();
-        DeliveryMan selectedDeliveryAgent = (DeliveryMan)model.getValueAt(selectedRowIndex, 0);
+        DeliveryMan selectedDeliveryAgent = (DeliveryMan) model.getValueAt(selectedRowIndex, 0);
         txtName.setText("");
         txtName.setText(selectedDeliveryAgent.getName());
         txtUsername.setText("");
@@ -286,13 +294,14 @@ public class ManageDeliveryUsers extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        // This will simply delete the values stored 
         int selectedRowIndex = tblDeliveryUsers.getSelectedRow();
-        if(selectedRowIndex < 0){
+        if (selectedRowIndex < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row to delete");
             return;
         }
-         DefaultTableModel model = (DefaultTableModel) tblDeliveryUsers.getModel();
-        DeliveryMan selectedDeliveryAgent = (DeliveryMan)model.getValueAt(selectedRowIndex, 0);
+        DefaultTableModel model = (DefaultTableModel) tblDeliveryUsers.getModel();
+        DeliveryMan selectedDeliveryAgent = (DeliveryMan) model.getValueAt(selectedRowIndex, 0);
         // First delete the customer from employee
         this.system.getEmployeeDirectory().deleteEmployee(selectedDeliveryAgent.getName());
         // And thne delete the userAccount
@@ -302,9 +311,9 @@ public class ManageDeliveryUsers extends javax.swing.JPanel {
         );
         // finally delete the user from customer directory
         this.system.getDeliveryManDirectory().deleteDeliveryAgent(selectedDeliveryAgent);
-        
+
         JOptionPane.showMessageDialog(this, "Deleted the entry Successfully");
-        for(DeliveryMan ck : this.system.getDeliveryManDirectory().returnDeliveryAgentDetails()){
+        for (DeliveryMan ck : this.system.getDeliveryManDirectory().returnDeliveryAgentDetails()) {
             System.out.println(ck.getName());
         }
         this.populateTable();
@@ -338,12 +347,12 @@ public class ManageDeliveryUsers extends javax.swing.JPanel {
     private javax.swing.JTextField txtPhoneNumber;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
-    private void populateTable(){
+    private void populateTable() {
         System.out.println("Inside method to populate Delivery person details");
         DefaultTableModel model = (DefaultTableModel) tblDeliveryUsers.getModel();
         model.setRowCount(0);
 
-        for(DeliveryMan del : this.system.getDeliveryManDirectory().returnDeliveryAgentDetails()){
+        for (DeliveryMan del : this.system.getDeliveryManDirectory().returnDeliveryAgentDetails()) {
             System.out.println(del);
             Object[] row = new Object[5];
             row[0] = del;
@@ -354,6 +363,5 @@ public class ManageDeliveryUsers extends javax.swing.JPanel {
             model.addRow(row);
         }
     }
-
 
 }

@@ -11,6 +11,7 @@ import Business.Menu.Item;
 import Business.Restaurant.Restaurant;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -18,7 +19,7 @@ import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 /**
  *
- * @author Kiranreddy
+ * @author Nithin Bharadwaj
  */
 public class ManageMenu extends javax.swing.JPanel {
 
@@ -33,7 +34,7 @@ public class ManageMenu extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.res = res;
-        this.populatingMenu();
+        this.populateMenu();
     }
 
     /**
@@ -53,9 +54,9 @@ public class ManageMenu extends javax.swing.JPanel {
         txtItemName = new javax.swing.JTextField();
         txtPrice = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        backBtn = new javax.swing.JButton();
-        viewBtn = new javax.swing.JButton();
-        deleteBtn = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         btnUpdateMenu = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -83,24 +84,24 @@ public class ManageMenu extends javax.swing.JPanel {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Add/Update Menu");
 
-        backBtn.setText("<<Back");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("<<Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
-        viewBtn.setText("View");
-        viewBtn.addActionListener(new java.awt.event.ActionListener() {
+        btnView.setText("View");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewBtnActionPerformed(evt);
+                btnViewActionPerformed(evt);
             }
         });
 
-        deleteBtn.setText("Delete");
-        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteBtnActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
 
@@ -116,40 +117,36 @@ public class ManageMenu extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(30, 30, 30)
+                            .addComponent(btnBack)
+                            .addGap(130, 130, 130)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(162, 162, 162)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(516, 516, 516)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(viewBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(deleteBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGap(221, 221, 221)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(backBtn)
-                                .addGap(130, 130, 130)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(162, 162, 162)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(259, 259, 259)
+                                .addGap(15, 15, 15)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(36, 36, 36)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnUpdateMenu))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(239, 239, 239)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel2)
-                                        .addComponent(jLabel3))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGap(0, 0, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(226, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -158,30 +155,32 @@ public class ManageMenu extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(backBtn))
+                    .addComponent(btnBack))
                 .addGap(38, 38, 38)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(viewBtn)
-                .addGap(18, 18, 18)
-                .addComponent(deleteBtn)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnView)
+                        .addGap(12, 12, 12)
+                        .addComponent(btnDelete)))
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGap(39, 39, 39)
                 .addComponent(btnUpdateMenu)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         int selectedRowIndex = tblMenu.getSelectedRow();
         if(selectedRowIndex < 0){
@@ -192,10 +191,10 @@ public class ManageMenu extends javax.swing.JPanel {
         Item selectedItem = (Item)model.getValueAt(selectedRowIndex, 0);
         this.res.getMenu().getMenu().remove(selectedItem);
         JOptionPane.showMessageDialog(this, "Deleted the entry Successfully");
-        this.populatingMenu();
-    }//GEN-LAST:event_deleteBtnActionPerformed
+        this.populateMenu();
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         this.userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -207,7 +206,7 @@ public class ManageMenu extends javax.swing.JPanel {
                 systemAdminWorkAreaJPanel.populateTree();
             }
         }
-    }//GEN-LAST:event_backBtnActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnUpdateMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateMenuActionPerformed
         // TODO add your handling code here:
@@ -229,13 +228,13 @@ public class ManageMenu extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Updated the entry Successfully");
                     
         }catch(Exception e){
-            this.res.getMenu().getMenu().add(new Item(itemName, price, this.res.getRestaurantName()));
+            this.res.getMenu().addNewItem(itemName, price, this.res.getRestaurantName());
             JOptionPane.showMessageDialog(this, "Added the entry Successfully");
         }
-        this.populatingMenu();
+        this.populateMenu();
     }//GEN-LAST:event_btnUpdateMenuActionPerformed
 
-    private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
         int selectedRowIndex = tblMenu.getSelectedRow();
         if(selectedRowIndex < 0){
@@ -248,13 +247,14 @@ public class ManageMenu extends javax.swing.JPanel {
         txtItemName.setText(selectedItem.getItemName());
         txtPrice.setText("");
         txtPrice.setText(String.valueOf(selectedItem.getPrice()));
-    }//GEN-LAST:event_viewBtnActionPerformed
+    }//GEN-LAST:event_btnViewActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backBtn;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdateMenu;
-    private javax.swing.JButton deleteBtn;
+    private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -263,14 +263,20 @@ public class ManageMenu extends javax.swing.JPanel {
     private javax.swing.JTable tblMenu;
     private javax.swing.JTextField txtItemName;
     private javax.swing.JTextField txtPrice;
-    private javax.swing.JButton viewBtn;
     // End of variables declaration//GEN-END:variables
     
-    private void populatingMenu(){
-        
+    private void populateMenu(){
+        System.out.println("Inside method to populate menu for restaurant");
         DefaultTableModel model = (DefaultTableModel) tblMenu.getModel();
         model.setRowCount(0);
-        for(Item item : this.res.getMenu().getMenu()){
+        ArrayList<Item> itemList;
+        try{
+            itemList = this.res.getMenu().getMenu();
+        }catch(Exception e){
+            itemList = new ArrayList<Item>();
+        }
+        
+        for(Item item : itemList){
             Object[] row = new Object[2];
             row[0] = item;
             row[1] = item.getPrice();

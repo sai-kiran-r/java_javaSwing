@@ -33,9 +33,13 @@ public class MainJFrame extends javax.swing.JFrame {
         system = dB4OUtil.retrieveSystem();
         if(system == null){
             system = EcoSystem.getInstance();
-            
+            System.out.println("Created new instance");
             
         }
+        System.out.println("***Inside Main frame *********");
+        System.out.println(system.getClass());
+        System.out.println(system.getEmployeeDirectory().getEmployeeList());
+//        System.out.println(system.getCustomerDirectory().returnCustomerDetails());
 
         this.setSize(1680, 1050);
     }
@@ -52,8 +56,8 @@ public class MainJFrame extends javax.swing.JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         loginJButton = new javax.swing.JButton();
-        userNametxt = new javax.swing.JTextField();
-        passwordtxt = new javax.swing.JPasswordField();
+        userNameJTextField = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         loginJLabel = new javax.swing.JLabel();
@@ -88,10 +92,10 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(passwordtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                        .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(userNametxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(userNameJTextField, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(loginJLabel))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(logoutJButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -104,11 +108,11 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(userNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passwordtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(loginJButton)
                 .addGap(34, 34, 34)
@@ -130,42 +134,40 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
         // Get user name
-        String userName = userNametxt.getText().toString();
-        String password = passwordtxt.getText().toString();
+        String userNameGiven = userNameJTextField.getText().toString();
+        String passwordGiven = passwordField.getText().toString();
         
-        UserAccount userAccount = system.getUserAccountDirectory()
-                .authenticateUser(userName, password);
-        
-        
-        if(userAccount == null){
-            JOptionPane.showMessageDialog(this, "Please enter Valid data");
-            userNametxt.setText("");
-            passwordtxt.setText("");
+        UserAccount userData = system.getUserAccountDirectory()
+                .authenticateUser(userNameGiven, passwordGiven);
+        System.out.println(userData);
+        if(userData == null){
+            JOptionPane.showMessageDialog(this, "Please enter Valid credentials");
+            userNameJTextField.setText("");
+            passwordField.setText("");
         }
         else{
-            userNametxt.setText("");
-            passwordtxt.setText("");
+            userNameJTextField.setText("");
+            passwordField.setText("");
             CardLayout layout=(CardLayout)container.getLayout();
-            container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, system));
+            container.add("workArea", userData.getRole().createWorkArea(container, userData, system));
             layout.next(container);
         }
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
-
-        
-        userNametxt.setEnabled(true);
-        passwordtxt.setEnabled(true);
+//        logoutJButton.setEnabled(false);
+        userNameJTextField.setEnabled(true);
+        passwordField.setEnabled(true);
         loginJButton.setEnabled(true);
 
-        userNametxt.setText("");
-        passwordtxt.setText("");
+        userNameJTextField.setText("");
+        passwordField.setText("");
 
         container.removeAll();
         JPanel blankJP = new JPanel();
         container.add("blank", blankJP);
-        CardLayout cardLayout = (CardLayout) container.getLayout();
-        cardLayout.next(container);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
         dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_logoutJButtonActionPerformed
 
@@ -212,7 +214,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton loginJButton;
     private javax.swing.JLabel loginJLabel;
     private javax.swing.JButton logoutJButton;
-    private javax.swing.JPasswordField passwordtxt;
-    private javax.swing.JTextField userNametxt;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JTextField userNameJTextField;
     // End of variables declaration//GEN-END:variables
 }

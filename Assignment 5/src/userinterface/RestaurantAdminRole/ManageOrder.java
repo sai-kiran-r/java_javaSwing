@@ -20,7 +20,7 @@ import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 /**
  *
- * @author Kiranreddy
+ * @author Nithin Bharadwaj
  */
 public class ManageOrder extends javax.swing.JPanel {
 
@@ -45,14 +45,14 @@ public class ManageOrder extends javax.swing.JPanel {
     }
     
     private void populateCustomerOrdersTable(){
-        
+        System.out.println("Populating customers orders");
 
         DefaultTableModel model = (DefaultTableModel) tblOrders.getModel();
         model.setRowCount(0);
         for(Order o : this.system.getOrderDirectory().getOrderDirectory()){
             if(o.getRestaurant().getRestaurantName().equals(
                 this.resta.getRestaurantName())){
-                
+                System.out.println(o);
                 Object[] row = new Object[5];
                 row[0] = o;
                 row[1] = o.getItem().getItemName();
@@ -226,8 +226,8 @@ public class ManageOrder extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         this.userProcessContainer.remove(this);
-        CardLayout layoutCard = (CardLayout) userProcessContainer.getLayout();
-        layoutCard.previous(userProcessContainer);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
         Component[] comps = this.userProcessContainer.getComponents();
         for(Component comp : comps){
             if(comp instanceof SystemAdminWorkAreaJPanel){
@@ -266,25 +266,25 @@ public class ManageOrder extends javax.swing.JPanel {
 
     private void btnRefreshOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshOrdersActionPerformed
         // TODO add your handling code here:
-        ArrayList<String> orderArray = new ArrayList<String>();
+        ArrayList<String> orderArr = new ArrayList<String>();
         for (Order o : this.system.getOrderDirectory().getOrderDirectory()){
             if(o.getOrderStatus().equals("Order Accepted")){
-                orderArray.add(String.valueOf(o.getOrderId()));
+                orderArr.add(String.valueOf(o.getOrderId()));
             }
             
         }
-        comboOrderId.setModel(new DefaultComboBoxModel<String>(orderArray.toArray(new String[0])));
+        comboOrderId.setModel(new DefaultComboBoxModel<String>(orderArr.toArray(new String[0])));
     }//GEN-LAST:event_btnRefreshOrdersActionPerformed
 
     private void btnAssignDeliveryAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignDeliveryAgentActionPerformed
         // TODO add your handling code here:
         try{
             int orderId = Integer.parseInt(comboOrderId.getSelectedItem().toString());
-            Order orders = this.system.getOrderDirectory().getOrderId(orderId);
-            if(orders.getOrderStatus().equals("Order Accepted")) {
-                orders.setOrderStatus("Delivery Assigned");
-                orders.setDeliveryMan(comboDelivery.getSelectedItem().toString());
-                orders.setSender(this.system.getUserAccountDirectory().getUserAccount(comboDelivery.getSelectedItem().toString()));
+            Order order = this.system.getOrderDirectory().getOrderId(orderId);
+            if(order.getOrderStatus().equals("Order Accepted")) {
+                order.setOrderStatus("Delivery Assigned");
+                order.setDeliveryMan(comboDelivery.getSelectedItem().toString());
+                order.setSender(this.system.getUserAccountDirectory().getUserAccount(comboDelivery.getSelectedItem().toString()));
                 JOptionPane.showMessageDialog(null, "Assigned the Delivery Agent Successfully");
             }
 
@@ -296,6 +296,10 @@ public class ManageOrder extends javax.swing.JPanel {
             this.populateCustomerOrdersTable();
         }catch(NullPointerException e){
                 JOptionPane.showMessageDialog(null, "No Order to assign!!!");
+                return;
+            }
+        catch(NumberFormatException pk){
+                JOptionPane.showMessageDialog(null, "Please accept orders and Refersh the order-ids!!!");
                 return;
             }
         

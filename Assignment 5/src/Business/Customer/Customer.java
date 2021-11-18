@@ -16,15 +16,15 @@ public class Customer {
     private String name;
     private String userName;
     private String userPassword;
-    private int phoneNumber;
+    private long phoneNumber;
     private String address;
     UserAccount ua;
 
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

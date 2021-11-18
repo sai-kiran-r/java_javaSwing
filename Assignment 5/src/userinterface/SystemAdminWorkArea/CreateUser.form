@@ -26,114 +26,117 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="299" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
+                      <Component id="btnSubmit" min="-2" pref="77" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="namelbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="usernamelbl" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                      <Component id="backBtn" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="passwordlbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="confirmPasswordlbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="addresslbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="resturantNamelbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="phoneNumberlbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="rolelbl" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="resturantNameTxt" alignment="0" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="phoneNumberTxt" alignment="0" pref="160" max="32767" attributes="0"/>
-                              <Component id="addressTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="confirmPasswordTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="nameTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="userNameTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="passwordTxt" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="lblName" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtName" min="-2" pref="170" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="comboRole" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="btnGoBack" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" pref="299" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lblPassword" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblUserName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblConfirmPassword" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAddress" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblPhoneNumber" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblRole" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblResturantName" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtUsername" pref="170" max="32767" attributes="0"/>
+                                  <Component id="comboRole" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtRestaurantName" min="-2" pref="168" max="-2" attributes="0"/>
+                                  <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtPhoneNumber" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtAddress" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtPasswordConfirm" alignment="0" pref="168" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
-                      <Component id="submitBtn" min="-2" pref="77" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="139" max="32767" attributes="0"/>
+              <EmptySpace pref="148" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="backBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="btnGoBack" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="namelbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="usernamelbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="userNameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblUserName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtUsername" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="passwordlbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="passwordTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtPassword" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="confirmPasswordlbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="confirmPasswordTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblConfirmPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtPasswordConfirm" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="addresslbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="addressTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAddress" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="phoneNumberlbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="phoneNumberTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPhoneNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtPhoneNumber" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="resturantNameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="resturantNamelbl" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="rolelbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="comboRole" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRole" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Component id="submitBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="46" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtRestaurantName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblResturantName" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnSubmit" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="70" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="backBtn">
+    <Component class="javax.swing.JButton" name="btnGoBack">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&lt;&lt; Back"/>
+        <Property name="text" type="java.lang.String" value="&lt;&lt; Go Back"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backBtnActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGoBackActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -145,51 +148,48 @@
         <Property name="text" type="java.lang.String" value="Create New User"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="namelbl">
+    <Component class="javax.swing.JLabel" name="lblName">
       <Properties>
         <Property name="text" type="java.lang.String" value="Name :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="nameTxt">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameTxtActionPerformed"/>
-      </Events>
+    <Component class="javax.swing.JTextField" name="txtName">
     </Component>
-    <Component class="javax.swing.JLabel" name="usernamelbl">
+    <Component class="javax.swing.JLabel" name="lblUserName">
       <Properties>
         <Property name="text" type="java.lang.String" value="Username :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="userNameTxt">
+    <Component class="javax.swing.JTextField" name="txtUsername">
     </Component>
-    <Component class="javax.swing.JLabel" name="passwordlbl">
+    <Component class="javax.swing.JLabel" name="lblPassword">
       <Properties>
         <Property name="text" type="java.lang.String" value="Password :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="confirmPasswordlbl">
+    <Component class="javax.swing.JLabel" name="lblConfirmPassword">
       <Properties>
         <Property name="text" type="java.lang.String" value="Confirm Password :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="rolelbl">
+    <Component class="javax.swing.JLabel" name="lblRole">
       <Properties>
         <Property name="text" type="java.lang.String" value="Role :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="resturantNamelbl">
+    <Component class="javax.swing.JLabel" name="lblResturantName">
       <Properties>
         <Property name="text" type="java.lang.String" value="Restaurant Name :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="resturantNameTxt">
+    <Component class="javax.swing.JTextField" name="txtRestaurantName">
     </Component>
-    <Component class="javax.swing.JButton" name="submitBtn">
+    <Component class="javax.swing.JButton" name="btnSubmit">
       <Properties>
         <Property name="text" type="java.lang.String" value="Submit"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitBtnActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSubmitActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="comboRole">
@@ -202,27 +202,30 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboRoleActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="passwordTxt">
+    <Component class="javax.swing.JPasswordField" name="txtPassword">
     </Component>
-    <Component class="javax.swing.JPasswordField" name="confirmPasswordTxt">
+    <Component class="javax.swing.JPasswordField" name="txtPasswordConfirm">
     </Component>
-    <Component class="javax.swing.JLabel" name="addresslbl">
+    <Component class="javax.swing.JLabel" name="lblAddress">
       <Properties>
         <Property name="text" type="java.lang.String" value="Address :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="phoneNumberlbl">
+    <Component class="javax.swing.JLabel" name="lblPhoneNumber">
       <Properties>
         <Property name="text" type="java.lang.String" value="Phone Number :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="addressTxt">
+    <Component class="javax.swing.JTextField" name="txtAddress">
     </Component>
-    <Component class="javax.swing.JTextField" name="phoneNumberTxt">
+    <Component class="javax.swing.JTextField" name="txtPhoneNumber">
     </Component>
   </SubComponents>
 </Form>

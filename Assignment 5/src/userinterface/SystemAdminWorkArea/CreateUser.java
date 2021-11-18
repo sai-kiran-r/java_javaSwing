@@ -13,6 +13,7 @@ import Business.Employee.Employee;
 import Business.Restaurant.Restaurant;
 import Business.Role.AdminRole;
 import Business.Role.CustomerRole;
+import Business.Role.DeliverManRole;
 import Business.UserAccount.UserAccount;
 import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
@@ -22,6 +23,9 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import Business.Validation.Validation;
+import java.awt.Dimension;
+import javax.swing.UIManager;
 
 /**
  *
@@ -34,11 +38,13 @@ public class CreateUser extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     EcoSystem system;
+    Validation validation;
     
     public CreateUser(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
         this.system = system;
         this.userProcessContainer = userProcessContainer;
+        this.validation = new Validation();
     }
 
     /**
@@ -51,32 +57,32 @@ public class CreateUser extends javax.swing.JPanel {
     private void initComponents() {
 
         jPasswordField1 = new javax.swing.JPasswordField();
-        backBtn = new javax.swing.JButton();
+        btnGoBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        namelbl = new javax.swing.JLabel();
-        nameTxt = new javax.swing.JTextField();
-        usernamelbl = new javax.swing.JLabel();
-        userNameTxt = new javax.swing.JTextField();
-        passwordlbl = new javax.swing.JLabel();
-        confirmPasswordlbl = new javax.swing.JLabel();
-        rolelbl = new javax.swing.JLabel();
-        resturantNamelbl = new javax.swing.JLabel();
-        resturantNameTxt = new javax.swing.JTextField();
-        submitBtn = new javax.swing.JButton();
+        lblName = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        lblUserName = new javax.swing.JLabel();
+        txtUsername = new javax.swing.JTextField();
+        lblPassword = new javax.swing.JLabel();
+        lblConfirmPassword = new javax.swing.JLabel();
+        lblRole = new javax.swing.JLabel();
+        lblResturantName = new javax.swing.JLabel();
+        txtRestaurantName = new javax.swing.JTextField();
+        btnSubmit = new javax.swing.JButton();
         comboRole = new javax.swing.JComboBox();
-        passwordTxt = new javax.swing.JPasswordField();
-        confirmPasswordTxt = new javax.swing.JPasswordField();
-        addresslbl = new javax.swing.JLabel();
-        phoneNumberlbl = new javax.swing.JLabel();
-        addressTxt = new javax.swing.JTextField();
-        phoneNumberTxt = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        txtPasswordConfirm = new javax.swing.JPasswordField();
+        lblAddress = new javax.swing.JLabel();
+        lblPhoneNumber = new javax.swing.JLabel();
+        txtAddress = new javax.swing.JTextField();
+        txtPhoneNumber = new javax.swing.JTextField();
 
         jPasswordField1.setText("jPasswordField1");
 
-        backBtn.setText("<< Back");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
+        btnGoBack.setText("<< Go Back");
+        btnGoBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
+                btnGoBackActionPerformed(evt);
             }
         });
 
@@ -84,36 +90,35 @@ public class CreateUser extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Create New User");
 
-        namelbl.setText("Name :");
+        lblName.setText("Name :");
 
-        nameTxt.addActionListener(new java.awt.event.ActionListener() {
+        lblUserName.setText("Username :");
+
+        lblPassword.setText("Password :");
+
+        lblConfirmPassword.setText("Confirm Password :");
+
+        lblRole.setText("Role :");
+
+        lblResturantName.setText("Restaurant Name :");
+
+        btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameTxtActionPerformed(evt);
-            }
-        });
-
-        usernamelbl.setText("Username :");
-
-        passwordlbl.setText("Password :");
-
-        confirmPasswordlbl.setText("Confirm Password :");
-
-        rolelbl.setText("Role :");
-
-        resturantNamelbl.setText("Restaurant Name :");
-
-        submitBtn.setText("Submit");
-        submitBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitBtnActionPerformed(evt);
+                btnSubmitActionPerformed(evt);
             }
         });
 
         comboRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Restaurant Admin", "Customer", "Delivery Man" }));
+        comboRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboRoleActionPerformed(evt);
+            }
+        });
 
-        addresslbl.setText("Address :");
+        lblAddress.setText("Address :");
 
-        phoneNumberlbl.setText("Phone Number :");
+        lblPhoneNumber.setText("Phone Number :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -122,87 +127,89 @@ public class CreateUser extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(250, 250, 250)
+                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(200, 200, 200)
+                        .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(namelbl)
-                            .addComponent(usernamelbl)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(backBtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(passwordlbl)
-                            .addComponent(confirmPasswordlbl)
-                            .addComponent(addresslbl)
-                            .addComponent(resturantNamelbl)
-                            .addComponent(phoneNumberlbl)
-                            .addComponent(rolelbl))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(resturantNameTxt)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(phoneNumberTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                                .addComponent(addressTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(confirmPasswordTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(nameTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(userNameTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(passwordTxt, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(comboRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(256, 256, 256)
-                        .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(139, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblName)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnGoBack)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblPassword)
+                                    .addComponent(lblUserName)
+                                    .addComponent(lblConfirmPassword)
+                                    .addComponent(lblAddress)
+                                    .addComponent(lblPhoneNumber)
+                                    .addComponent(lblRole)
+                                    .addComponent(lblResturantName))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(comboRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtRestaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPassword)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtPhoneNumber, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtAddress, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtPasswordConfirm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)))))))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(backBtn)
-                .addGap(1, 1, 1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(btnGoBack)))
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namelbl)
-                    .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblName)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(usernamelbl)
-                    .addComponent(userNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblUserName)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordlbl)
-                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblPassword)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(confirmPasswordlbl)
-                    .addComponent(confirmPasswordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblConfirmPassword)
+                    .addComponent(txtPasswordConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addresslbl)
-                    .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAddress)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(phoneNumberlbl)
-                    .addComponent(phoneNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(lblPhoneNumber)
+                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(resturantNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resturantNamelbl))
-                .addGap(27, 27, 27)
+                    .addComponent(comboRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRole))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rolelbl)
-                    .addComponent(comboRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(submitBtn)
-                .addContainerGap(46, Short.MAX_VALUE))
+                    .addComponent(txtRestaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblResturantName))
+                .addGap(18, 18, 18)
+                .addComponent(btnSubmit)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+    private void btnGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoBackActionPerformed
         // TODO add your handling code here:
         this.userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -214,91 +221,123 @@ public class CreateUser extends javax.swing.JPanel {
                 systemAdminWorkAreaJPanel.populateTree();
             }
         }
-    }//GEN-LAST:event_backBtnActionPerformed
+    }//GEN-LAST:event_btnGoBackActionPerformed
 
-    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
         UserAccountDirectory usersList = this.system.getUserAccountDirectory();
         String role = (String) comboRole.getSelectedItem();
         Employee employee = new Employee();
-        employee.setName(nameTxt.getText());
+        employee.setName(txtName.getText());
         boolean userDoNotExists = true;
         ArrayList<UserAccount> users = usersList.getUserAccountList();
         for(UserAccount ua : users)
         {
-            if(ua.getUsername().equals(userNameTxt.getText()))
+            if(ua.getUsername().equals(txtUsername.getText()))
                 userDoNotExists = false;
         }
-        if(passwordTxt.getText().equals(confirmPasswordTxt.getText()))
+        if(txtPassword.getText().equals(txtPasswordConfirm.getText()))
         {
-            if(role.equals("Customer")){
-                usersList.createUserAccount(userNameTxt.getText(),passwordTxt.getText(), employee, new CustomerRole());
-                UserAccount ua = usersList.getUserAccount(userNameTxt.getText());
-                Customer customer = new Customer(ua);
-                customer.setAddress(addressTxt.getText());
-                customer.setPhoneNumber(Integer.parseInt(phoneNumberTxt.getText()));
-                System.out.println(customer.getName());
-                System.out.println(system.getCustomerDirectory());
-                system.getCustomerDirectory().addCustomer(customer);
-                JOptionPane.showMessageDialog(this, "Added the customer successfully");
+            boolean nameValidation = this.validation.validateName(txtName);
+            boolean userNameValidation = this.validation.validateUserName(txtUsername);
+            boolean addressValidation = this.validation.validateAddress(txtAddress);
+            boolean phoneNumberValidation = this.validation.validatePhone(txtPhoneNumber);
+            if(nameValidation && userNameValidation && addressValidation && phoneNumberValidation){
+                if(role.equals("Customer")){
+                    usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new CustomerRole());
+                    UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                    Customer customer = new Customer(ua);
+                    customer.setAddress(txtAddress.getText());
+                    customer.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                    System.out.println(customer.getName());
+                    System.out.println(system.getCustomerDirectory());
+                    system.getCustomerDirectory().addCustomer(customer);
+                    JOptionPane.showMessageDialog(this, "Added the Customer Profile successfully");
+                    this.clearText();
+                }
+                else if(role.equals("Delivery Man")){
+                    usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new DeliverManRole());
+                    UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                    DeliveryMan deliveryAgent = new DeliveryMan(ua);
+                    deliveryAgent.setAddress(txtAddress.getText());
+                    deliveryAgent.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText())); 
+                    deliveryAgent.setStatus("Available");
+                    system.getDeliveryManDirectory().addDeliveryAgent(deliveryAgent);
+                    JOptionPane.showMessageDialog(this, "Added the Delivery Partner");
+                    this.clearText();
+                }
+                else if(role.equals("Restaurant Admin")){
+                    boolean restaurantValidation = this.validation.validateName(txtRestaurantName);
+                    if(restaurantValidation){
+                        usersList.createUserAccount(txtUsername.getText(),
+                                txtPassword.getText(), employee, new AdminRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        Restaurant restaurantData = new Restaurant(txtRestaurantName.getText(),
+                                txtAddress.getText(), txtName.getText(),
+                                Long.parseLong(txtPhoneNumber.getText()), ua);
+                        system.getRestaurantDirectory().addRestaurant(restaurantData);
+                        JOptionPane.showMessageDialog(this, "Added the Restaurant and Admin Successfully");
+                        this.clearText();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this, "Invalid Restaurant Name!!!!");
+//                        this.clearText();
+                    }
+                    
+                }
+            }else{
+                String errorMessage = String.format("Profile info NOT SAVED!!! \n"
+                    + "Name validation Status: %s \n UserName Validation : %s \n" +
+                    "Phone Number Validation : %s\n" +
+                    "Address Validation : %s \n"
+                                , nameValidation, userNameValidation,
+                                phoneNumberValidation, addressValidation
+                                );
+                UIManager.put("OptionPane.minimumSize",new Dimension(250,250)); 
+                JOptionPane.showMessageDialog(this, errorMessage);
                 this.clearText();
             }
-            else if(role.equals("Delivery Man")){
-                usersList.createUserAccount(userNameTxt.getText(),passwordTxt.getText(), employee, new CustomerRole());
-                UserAccount ua = usersList.getUserAccount(userNameTxt.getText());
-                DeliveryMan deliveryAgent = new DeliveryMan(ua);
-                deliveryAgent.setAddress(addressTxt.getText());
-                deliveryAgent.setPhoneNumber(Integer.parseInt(phoneNumberTxt.getText())); 
-                deliveryAgent.setStatus("Available");
-                system.getDeliveryManDirectory().addDeliveryAgent(deliveryAgent);
-                JOptionPane.showMessageDialog(this, "Added the DeliveryMan successfully");
-                this.clearText();
-            }
-            else if(role.equals("Restaurant Admin")){
-                usersList.createUserAccount(userNameTxt.getText(),
-                            passwordTxt.getText(), employee, new AdminRole());
-                UserAccount ua = usersList.getUserAccount(userNameTxt.getText());
-                Restaurant restaurantData = new Restaurant(resturantNameTxt.getText(),
-                        addressTxt.getText(), nameTxt.getText(),
-                        Integer.parseInt(phoneNumberTxt.getText()), ua);
-                system.getRestaurantDirectory().addRestaurant(restaurantData);
-                JOptionPane.showMessageDialog(this, "Added the Restaurant and Admin Successfully");
-                this.clearText();
-            }
+            
         }
-    }//GEN-LAST:event_submitBtnActionPerformed
+    }//GEN-LAST:event_btnSubmitActionPerformed
 
-    private void nameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTxtActionPerformed
+    private void comboRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboRoleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nameTxtActionPerformed
+        if(comboRole.getSelectedItem().toString().equals("Restaurant Admin")){
+            txtRestaurantName.setEditable(true);
+        }
+        else{
+            txtRestaurantName.setEditable(false);
+        }
+    }//GEN-LAST:event_comboRoleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField addressTxt;
-    private javax.swing.JLabel addresslbl;
-    private javax.swing.JButton backBtn;
+    private javax.swing.JButton btnGoBack;
+    private javax.swing.JButton btnSubmit;
     private javax.swing.JComboBox comboRole;
-    private javax.swing.JPasswordField confirmPasswordTxt;
-    private javax.swing.JLabel confirmPasswordlbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField nameTxt;
-    private javax.swing.JLabel namelbl;
-    private javax.swing.JPasswordField passwordTxt;
-    private javax.swing.JLabel passwordlbl;
-    private javax.swing.JTextField phoneNumberTxt;
-    private javax.swing.JLabel phoneNumberlbl;
-    private javax.swing.JTextField resturantNameTxt;
-    private javax.swing.JLabel resturantNamelbl;
-    private javax.swing.JLabel rolelbl;
-    private javax.swing.JButton submitBtn;
-    private javax.swing.JTextField userNameTxt;
-    private javax.swing.JLabel usernamelbl;
+    private javax.swing.JLabel lblAddress;
+    private javax.swing.JLabel lblConfirmPassword;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblPhoneNumber;
+    private javax.swing.JLabel lblResturantName;
+    private javax.swing.JLabel lblRole;
+    private javax.swing.JLabel lblUserName;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JPasswordField txtPasswordConfirm;
+    private javax.swing.JTextField txtPhoneNumber;
+    private javax.swing.JTextField txtRestaurantName;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 
     private void clearText(){
-        JTextField[] textFields = {nameTxt,passwordTxt,confirmPasswordTxt,
-                    resturantNameTxt, userNameTxt, addressTxt, phoneNumberTxt};
+        JTextField[] textFields = {txtName,txtPassword,txtPasswordConfirm,
+                    txtRestaurantName, txtUsername, txtAddress, txtPhoneNumber};
         for(JTextField pk : textFields){
             pk.setText("");
         }

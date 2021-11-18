@@ -35,15 +35,15 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" alignment="0" pref="85" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="147" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="246" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="149" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jScrollPane1" alignment="0" pref="395" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -79,23 +79,23 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="lblSelectedNode" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="btnNewUser" min="-2" pref="185" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="btnManageNetwork" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnCreateNewUser" alignment="1" min="-2" pref="158" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="btnCustomerProfile" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnManageEnterprise" min="-2" pref="185" max="-2" attributes="0"/>
+                                      <Component id="btnResturantProfile" min="-2" pref="149" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnManageAdmin" min="-2" pref="185" max="-2" attributes="0"/>
+                              <Component id="btnDeliveryProfile" min="-2" pref="153" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="33" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -107,15 +107,15 @@
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblSelectedNode" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnManageNetwork" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnManageEnterprise" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnManageAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCustomerProfile" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnResturantProfile" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnDeliveryProfile" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="btnNewUser" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="208" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnCreateNewUser" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="216" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -131,36 +131,36 @@
                 <Property name="text" type="java.lang.String" value="&lt;View_selected_node&gt;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageNetwork">
+            <Component class="javax.swing.JButton" name="btnCustomerProfile">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Manage All Customers"/>
+                <Property name="text" type="java.lang.String" value="Customers Profile"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageNetworkActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCustomerProfileActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageEnterprise">
+            <Component class="javax.swing.JButton" name="btnResturantProfile">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Manage Restaurants"/>
+                <Property name="text" type="java.lang.String" value="Restaurants Profile"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageEnterpriseActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResturantProfileActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageAdmin">
+            <Component class="javax.swing.JButton" name="btnDeliveryProfile">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Manage Deliveryman"/>
+                <Property name="text" type="java.lang.String" value="Deliveryman  Profile"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageAdminActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeliveryProfileActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnNewUser">
+            <Component class="javax.swing.JButton" name="btnCreateNewUser">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Create New User"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewUserActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateNewUserActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

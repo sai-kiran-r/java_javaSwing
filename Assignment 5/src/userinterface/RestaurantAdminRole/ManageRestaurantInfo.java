@@ -34,6 +34,7 @@ public class ManageRestaurantInfo extends javax.swing.JPanel {
         txtAddress.setText(this.res.getAddress());
         txtMangerName.setText(this.res.getManagerName());
         txtRestaurantName.setText(this.res.getRestaurantName());
+        System.out.println(this.res.getPhoneNumber());
         txtPhoneNumber.setText(String.valueOf(this.res.getPhoneNumber()));
     }
 
@@ -60,7 +61,7 @@ public class ManageRestaurantInfo extends javax.swing.JPanel {
 
         lbTItle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbTItle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTItle.setText("Update Restaurant Info");
+        lbTItle.setText(" Restaurant Profile");
 
         jLabel2.setText("Address :");
 
@@ -168,7 +169,7 @@ public class ManageRestaurantInfo extends javax.swing.JPanel {
             }
         }
         this.res.setAddress(txtAddress.getText());
-        this.res.setPhoneNumber(Integer.parseInt(txtPhoneNumber.getText()));
+        this.res.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
         this.res.setManagerName(txtMangerName.getText());
         this.res.setRestaurantName(txtRestaurantName.getText());
         JOptionPane.showMessageDialog(this, "Updated info Successfully");

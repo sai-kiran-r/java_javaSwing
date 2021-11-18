@@ -34,7 +34,7 @@ public class EcoSystem extends Organization{
     private OrderDirectory orderDirectory;
 
     public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
-        
+        System.out.println("Inside public constructuer");
         this.restaurantDirectory = restaurantDirectory;
         this.customerDirectory = customerDirectory;
         this.deliveryManDirectory = deliveryManDirectory;
@@ -43,7 +43,7 @@ public class EcoSystem extends Organization{
     public EcoSystem(RestaurantDirectory restaurantDirectory, 
             CustomerDirectory customerDirectory, 
             DeliveryManDirectory deliveryManDirectory, OrderDirectory orderDirectory) {
-        
+        System.out.println("Inside public constructuer");
         this.restaurantDirectory = restaurantDirectory;
         this.customerDirectory = customerDirectory;
         this.deliveryManDirectory = deliveryManDirectory;

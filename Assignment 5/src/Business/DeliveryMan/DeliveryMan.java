@@ -16,7 +16,7 @@ public class DeliveryMan {
     private String name;
     private String status;
     private String address;
-    private int phoneNumber;
+    private long phoneNumber;
 
     public String getAddress() {
         return this.address;
@@ -26,11 +26,11 @@ public class DeliveryMan {
         this.address = address;
     }
 
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return this.phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
     UserAccount ua;

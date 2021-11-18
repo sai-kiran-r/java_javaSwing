@@ -17,12 +17,12 @@ public class Restaurant {
     private String restaurantName;
     private String address;
     private String managerName;
-    private int phoneNumber;
+    private long phoneNumber;
     private Menu itemMenu;
     private UserAccount managerAccount;
     
     public Restaurant(String restaurantName, String address,
-                String managerName, int phoneNumber, UserAccount ua) {
+                String managerName, long phoneNumber, UserAccount ua) {
         this.restaurantName = restaurantName;
         this.address = address;
         this.managerName = managerName;
@@ -70,11 +70,11 @@ public class Restaurant {
         this.managerName = managerName;
     }
 
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
     
