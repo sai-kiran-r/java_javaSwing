@@ -30,30 +30,30 @@
                           <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="btnView" min="-2" pref="65" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="lbUsername" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lbName" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lbPassword" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lbUsername1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lbUsername2" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtPhoneNumber" max="32767" attributes="0"/>
-                                          <Component id="txtAddress" max="32767" attributes="0"/>
-                                          <Component id="txtName" alignment="0" pref="159" max="32767" attributes="0"/>
-                                          <Component id="txtUsername" alignment="0" pref="159" max="32767" attributes="0"/>
-                                          <Component id="comboStatus" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
+                                  <Component id="lbUsername" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbPassword" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbUsername1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbUsername2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="btnView" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnSubmit" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtPhoneNumber" max="32767" attributes="0"/>
+                                      <Component id="txtAddress" max="32767" attributes="0"/>
+                                      <Component id="txtName" alignment="0" pref="159" max="32767" attributes="0"/>
+                                      <Component id="txtUsername" alignment="0" pref="159" max="32767" attributes="0"/>
+                                      <Component id="comboStatus" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnSubmit" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -76,12 +76,12 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnView" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSubmit" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnSubmit" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -103,7 +103,7 @@
                   <Component id="txtPhoneNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbUsername2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
