@@ -31,7 +31,7 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         
         this.userAccount = account;
-       
+        valueLabel.setText(account.getUsername());
     }
 
     /**
