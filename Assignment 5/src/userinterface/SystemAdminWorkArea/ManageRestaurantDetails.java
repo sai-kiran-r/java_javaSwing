@@ -61,6 +61,8 @@ public class ManageRestaurantDetails extends javax.swing.JPanel {
         lblAddress = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         lbTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitle.setText("Manage Restaurant Details");

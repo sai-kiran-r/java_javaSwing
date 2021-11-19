@@ -61,6 +61,8 @@ public class ManageDeliveryUsers extends javax.swing.JPanel {
         lbUsername2 = new javax.swing.JLabel();
         comboStatus = new javax.swing.JComboBox();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         lbTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitle.setText("Delivery Partners Profiles");
@@ -185,7 +187,6 @@ public class ManageDeliveryUsers extends javax.swing.JPanel {
                     .addComponent(btnBack))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
@@ -197,7 +198,6 @@ public class ManageDeliveryUsers extends javax.swing.JPanel {
                         .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnView)
                         .addComponent(lbName)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
@@ -213,7 +213,7 @@ public class ManageDeliveryUsers extends javax.swing.JPanel {
                         .addComponent(lbPassword)))
                 .addGap(18, 18, 18)
                 .addComponent(btnSubmit)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

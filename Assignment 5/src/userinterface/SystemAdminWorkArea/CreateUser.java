@@ -79,6 +79,8 @@ public class CreateUser extends javax.swing.JPanel {
 
         jPasswordField1.setText("jPasswordField1");
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         btnGoBack.setText("<< Go Back");
         btnGoBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,10 +157,9 @@ public class CreateUser extends javax.swing.JPanel {
                                     .addComponent(comboRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtRestaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPassword)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtPhoneNumber, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtAddress, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtPasswordConfirm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)))))))
+                                    .addComponent(txtPhoneNumber)
+                                    .addComponent(txtAddress)
+                                    .addComponent(txtPasswordConfirm, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))))))
                 .addContainerGap(148, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
