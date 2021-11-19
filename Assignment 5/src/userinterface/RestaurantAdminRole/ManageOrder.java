@@ -20,7 +20,7 @@ import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 /**
  *
- * @author Nithin Bharadwaj
+ * @author Kiranreddy
  */
 public class ManageOrder extends javax.swing.JPanel {
 
@@ -75,34 +75,34 @@ public class ManageOrder extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnAccept = new javax.swing.JButton();
-        btnReject = new javax.swing.JButton();
+        btnAcceptOrder = new javax.swing.JButton();
+        btnRejectOrder = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblOrders = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblOrder = new javax.swing.JLabel();
         comboOrderId = new javax.swing.JComboBox();
-        jLabel5 = new javax.swing.JLabel();
+        lblAgentName = new javax.swing.JLabel();
         comboDelivery = new javax.swing.JComboBox();
-        btnAssignDeliveryAgent = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
-        btnRefreshOrders = new javax.swing.JButton();
+        btnAssign = new javax.swing.JButton();
+        btnGoBack = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Orders");
 
-        btnAccept.setText("Accept Order");
-        btnAccept.addActionListener(new java.awt.event.ActionListener() {
+        btnAcceptOrder.setText("Accept Order");
+        btnAcceptOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAcceptActionPerformed(evt);
+                btnAcceptOrderActionPerformed(evt);
             }
         });
 
-        btnReject.setText("Reject Order");
-        btnReject.addActionListener(new java.awt.event.ActionListener() {
+        btnRejectOrder.setText("Reject Order");
+        btnRejectOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRejectActionPerformed(evt);
+                btnRejectOrderActionPerformed(evt);
             }
         });
 
@@ -123,11 +123,11 @@ public class ManageOrder extends javax.swing.JPanel {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Assign Delivery");
 
-        jLabel4.setText("Order Id :");
+        lblOrder.setText("Order Id :");
 
         comboOrderId.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel5.setText("Delivery Agent Name :");
+        lblAgentName.setText("Delivery Agent Name :");
 
         comboDelivery.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboDelivery.addActionListener(new java.awt.event.ActionListener() {
@@ -136,24 +136,24 @@ public class ManageOrder extends javax.swing.JPanel {
             }
         });
 
-        btnAssignDeliveryAgent.setText("Assign");
-        btnAssignDeliveryAgent.addActionListener(new java.awt.event.ActionListener() {
+        btnAssign.setText("Assign");
+        btnAssign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAssignDeliveryAgentActionPerformed(evt);
+                btnAssignActionPerformed(evt);
             }
         });
 
-        btnBack.setText("<<Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
+        btnGoBack.setText("<< Go Back");
+        btnGoBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+                btnGoBackActionPerformed(evt);
             }
         });
 
-        btnRefreshOrders.setText("Refresh");
-        btnRefreshOrders.addActionListener(new java.awt.event.ActionListener() {
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefreshOrdersActionPerformed(evt);
+                btnRefreshActionPerformed(evt);
             }
         });
 
@@ -163,35 +163,36 @@ public class ManageOrder extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(92, 92, 92)
-                            .addComponent(btnBack)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane2)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(btnAccept)
-                            .addGap(123, 123, 123)
-                            .addComponent(btnReject)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(201, 201, 201)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAssignDeliveryAgent)
+                        .addGap(80, 80, 80)
+                        .addComponent(btnGoBack)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
-                                .addGap(27, 27, 27)
+                                .addComponent(btnAcceptOrder)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnRejectOrder))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(comboDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(comboOrderId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37)
-                        .addComponent(btnRefreshOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(337, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblOrder)
+                                            .addComponent(lblAgentName))
+                                        .addGap(27, 27, 27)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(comboDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(comboOrderId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(111, 111, 111)
+                                        .addComponent(btnAssign)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(326, 326, 326)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(312, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,31 +200,31 @@ public class ManageOrder extends javax.swing.JPanel {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack))
+                    .addComponent(btnGoBack))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReject)
-                    .addComponent(btnAccept))
-                .addGap(36, 36, 36)
+                    .addComponent(btnAcceptOrder)
+                    .addComponent(btnRejectOrder))
+                .addGap(28, 28, 28)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(lblOrder)
                     .addComponent(comboOrderId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRefreshOrders))
+                    .addComponent(btnRefresh))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(lblAgentName)
                     .addComponent(comboDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addComponent(btnAssignDeliveryAgent)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnAssign)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+    private void btnGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoBackActionPerformed
         // TODO add your handling code here:
         this.userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -235,13 +236,13 @@ public class ManageOrder extends javax.swing.JPanel {
                 systemAdminWorkAreaJPanel.populateTree();
             }
         }
-    }//GEN-LAST:event_btnBackActionPerformed
+    }//GEN-LAST:event_btnGoBackActionPerformed
 
     private void comboDeliveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDeliveryActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboDeliveryActionPerformed
 
-    private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
+    private void btnAcceptOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptOrderActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblOrders.getSelectedRow();
         if(selectedRow < 0) {
@@ -262,9 +263,9 @@ public class ManageOrder extends javax.swing.JPanel {
         this.populateCustomerOrdersTable();
         
 
-    }//GEN-LAST:event_btnAcceptActionPerformed
+    }//GEN-LAST:event_btnAcceptOrderActionPerformed
 
-    private void btnRefreshOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshOrdersActionPerformed
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         // TODO add your handling code here:
         ArrayList<String> orderArr = new ArrayList<String>();
         for (Order o : this.system.getOrderDirectory().getOrderDirectory()){
@@ -274,9 +275,9 @@ public class ManageOrder extends javax.swing.JPanel {
             
         }
         comboOrderId.setModel(new DefaultComboBoxModel<String>(orderArr.toArray(new String[0])));
-    }//GEN-LAST:event_btnRefreshOrdersActionPerformed
+    }//GEN-LAST:event_btnRefreshActionPerformed
 
-    private void btnAssignDeliveryAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignDeliveryAgentActionPerformed
+    private void btnAssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignActionPerformed
         // TODO add your handling code here:
         try{
             int orderId = Integer.parseInt(comboOrderId.getSelectedItem().toString());
@@ -303,9 +304,9 @@ public class ManageOrder extends javax.swing.JPanel {
                 return;
             }
         
-    }//GEN-LAST:event_btnAssignDeliveryAgentActionPerformed
+    }//GEN-LAST:event_btnAssignActionPerformed
 
-    private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
+    private void btnRejectOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectOrderActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblOrders.getSelectedRow();
         if(selectedRow < 0) {
@@ -324,22 +325,22 @@ public class ManageOrder extends javax.swing.JPanel {
         }
         
         this.populateCustomerOrdersTable();
-    }//GEN-LAST:event_btnRejectActionPerformed
+    }//GEN-LAST:event_btnRejectOrderActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAccept;
-    private javax.swing.JButton btnAssignDeliveryAgent;
-    private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnRefreshOrders;
-    private javax.swing.JButton btnReject;
+    private javax.swing.JButton btnAcceptOrder;
+    private javax.swing.JButton btnAssign;
+    private javax.swing.JButton btnGoBack;
+    private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton btnRejectOrder;
     private javax.swing.JComboBox comboDelivery;
     private javax.swing.JComboBox comboOrderId;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblAgentName;
+    private javax.swing.JLabel lblOrder;
     private javax.swing.JTable tblOrders;
     // End of variables declaration//GEN-END:variables
 }
