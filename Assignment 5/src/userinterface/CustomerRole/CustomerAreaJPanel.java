@@ -120,6 +120,8 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtComment = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(128, 128, 128));
+
         btnSubmitReview.setText("Submit Comments");
         btnSubmitReview.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -51,6 +51,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(192, 47, 47));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -63,7 +64,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnResturantInfoActionPerformed(evt);
             }
         });
-        add(btnResturantInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 180, -1));
+        add(btnResturantInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 180, -1));
 
         btnAddUpdateMenu.setText("Add/Update menu");
         btnAddUpdateMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +72,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnAddUpdateMenuActionPerformed(evt);
             }
         });
-        add(btnAddUpdateMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 180, -1));
+        add(btnAddUpdateMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 180, -1));
 
         btnAcceptDeclineOrders.setText("Accept/Decline Orders");
         btnAcceptDeclineOrders.addActionListener(new java.awt.event.ActionListener() {
@@ -79,7 +80,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnAcceptDeclineOrdersActionPerformed(evt);
             }
         });
-        add(btnAcceptDeclineOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 180, -1));
+        add(btnAcceptDeclineOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 180, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Restaurant :");
